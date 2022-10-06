@@ -1,20 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 header {
-    height: 60px;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-}
+  height: 60px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 
-.header-left {
+  .header-left {
     width: 70%;
     height: 100%;
     display: flex;
@@ -22,9 +16,9 @@ header {
     align-items: center;
     justify-content: flex-start;
     margin-left: 2.5%;
-}
+  }
 
-.header-right {
+  .header-right {
     margin-right: 2.5%;
     width: 20%;
     display: flex;
@@ -32,47 +26,43 @@ header {
     align-items: center;
     height: 60px;
     justify-content: flex-end;
-}
+  }
 
-.header-right button {
+  .header-right button {
     padding: 10px;
     border: none;
     border-radius: 5px;
     transition: all 0.15s ease-in;
     transform: scale(1);
-}
+  }
 
-.header-right button:hover {
+  .header-right button:hover {
     transform: scale(1.1);
     cursor: pointer;
-}
+  }
 
-nav.main-navigation {
+  nav.main-navigation {
     width: 85%;
     margin-left: 1.5%;
-}
+  }
 
-nav.main-navigation ul li {
+  nav.main-navigation ul li {
     list-style: none;
     display: inline-block;
     margin-left: 1.5%;
-}
+  }
 
-nav.main-navigation ul li:first-child {
-    margin-left: 0;
-}
-
-nav.main-navigation ul {
+  nav.main-navigation ul {
     width: 100%;
-}
+  }
 
-nav.main-navigation ul li a {
+  nav.main-navigation ul li a {
     text-decoration: none;
     color: black;
     position: relative;
-}
+  }
 
-nav.main-navigation ul li a:after {
+  nav.main-navigation ul li a:after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -80,17 +70,18 @@ nav.main-navigation ul li a:after {
     height: 1px;
     width: 0;
     transition: all 0.20s ease-in-out;
-}
+  }
 
-nav.main-navigation ul li a:hover:after {
+  nav.main-navigation ul li a:hover:after {
     width: 100%;
     background-color: black;
-}
+  }
 
-.header-left div.logo {
+  .header-left div.logo {
     width: 10%;
-}
+  }
 
-.header-left div.logo img {
+  .header-left div.logo img {
     width: 100px;
+  }
 }
