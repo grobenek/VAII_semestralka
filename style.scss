@@ -7,29 +7,33 @@
 }
 
 .blog-wrapper {
-  //background: red;
   margin: 10%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  row-gap: 10px;
   flex-wrap: wrap;
 }
-
-// POKRACOVAT VO FLEXE, DOKONCIT BLOG-WRAPPER A ZACAT LOGIN
 
 .blog-area {
   display: flex;
   flex-direction: column;
   align-items: center;
-  //border: red solid;
+  flex-wrap: wrap;
+  align-content: center;
   max-width: 40%;
   height: fit-content;
-  margin: 5px;
-  //border: $secondary-color solid;
+  margin: 10px;
   border-radius: 15px;
   padding: 5px;
   background-color: $secondary-color;
+  box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.blog-area:hover {
+  border: $primary-color solid 3px;
+  cursor: pointer;
 }
 
 .blog-main-picture {
@@ -47,7 +51,7 @@
 }
 
 .blog-main-picture a img {
-  max-height: 100%;
+  height: auto;
   max-width: 100%;
   border-radius: 15px;
   object-fit: contain;
@@ -60,4 +64,40 @@
   text-align: center;
   word-break: break-all;
   white-space: normal;
+  font-size: 2vh;
+}
+
+.blog-main-h1 {
+  display: flex;
+  align-items: center ;
+  justify-self: center;
+  font-size: 1.5vh;
+}
+
+@media (max-width: 830px) {
+  .blog-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    max-width: 70%;
+    height: fit-content;
+    margin: 10px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: $secondary-color;
+    box-shadow: 5px 5px 5px #aaaaaa;
+  }
+
+  .blog-main-h1 {
+    font-size: 2vh;
+  }
 }

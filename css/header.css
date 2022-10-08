@@ -95,4 +95,59 @@ header .logo img {
   scale: 60%;
 }
 
+@media (max-width: 830px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
+  header .header-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: 0;
+  }
+  header nav.main-navigation {
+    margin: 0;
+    width: 100%;
+  }
+  header .main-navigation ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+  header nav.main-navigation ul li {
+    width: 100vw;
+    text-align: center;
+    margin: 3px 0 0;
+  }
+  header nav.main-navigation ul li:hover {
+    transform: none;
+    cursor: pointer;
+  }
+  header nav.main-navigation ul li a {
+    text-align: center;
+  }
+  header .header-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 100vw;
+    margin: 0;
+  }
+  header .header-right button {
+    width: 100vw;
+    margin: 3px 0 0;
+  }
+}
+
 /*# sourceMappingURL=header.css.map */
