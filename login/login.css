@@ -1,0 +1,82 @@
+.login-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background: #f6f3f3;
+  border: #7ae8e8 solid;
+  border-radius: 20px;
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-logo img {
+  width: 150px;
+}
+.login-logo h1 {
+  text-align: center;
+}
+
+.email-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  object-fit: contain;
+}
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.login-button {
+  margin-top: 20%;
+  padding: 10px;
+  width: 20vw;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.15s ease-in;
+  background-color: #7ae8e8;
+  transform: scale(1);
+}
+
+.login-button:hover {
+  transform: scale(1.1);
+  background-color: #4fe0e0;
+  cursor: pointer;
+}
+
+input {
+  height: 3vh;
+  width: 20vw;
+  padding: 2px;
+  margin: 5px;
+  appearance: auto;
+  border: #7ae8e8 solid;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  transition: all 0.15s ease-in;
+}
+
+input:hover {
+  transform: scale(1.05);
+  background-color: #7ae8e8;
+  cursor: auto;
+}
+
+/*# sourceMappingURL=login.css.map */

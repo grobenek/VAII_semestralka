@@ -1,0 +1,88 @@
+@import "../css/colors";
+
+.login-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background: #f6f3f3;
+  border: $primary-color solid;
+  border-radius: 20px;
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    //scale: 60%;
+    width: 150px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.email-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  //background-color: lightcoral;
+  object-fit: contain;
+}
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  //background-color: lightcyan;
+}
+
+.login-button {
+  margin-top: 20%;
+  padding: 10px;
+  width: 20vw;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.15s ease-in;
+  background-color: $primary-color;
+  transform: scale(1);
+}
+
+.login-button:hover {
+  transform: scale(1.1);
+  background-color: $hover-primary;
+  cursor: pointer;
+}
+
+input {
+  height: 3vh;
+  width: 20vw;
+  padding: 2px;
+  margin: 5px;
+  appearance: auto;
+  border: $primary-color solid;
+  border-radius: 5px;
+  background-color: $secondary-color;
+  transition: all 0.15s ease-in;
+}
+
+input:hover {
+  transform: scale(1.05);
+  background-color: $primary-color;
+  cursor: auto;
+}
+
