@@ -4,15 +4,17 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .blog-wrapper {
-  margin: 10%;
+  margin: 5% 10%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  row-gap: 10px;
+  justify-content: flex-start;
+  row-gap: 20px;
+  column-gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -20,11 +22,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   align-content: center;
-  max-width: 40%;
+  max-width: 30%;
   height: fit-content;
-  margin: 10px;
   border-radius: 15px;
   padding: 5px;
   background-color: $secondary-color;
@@ -50,28 +50,34 @@
   height: 100%;
 }
 
-.blog-main-picture a img {
-  height: auto;
-  max-width: 100%;
-  border-radius: 15px;
-  object-fit: contain;
+div.img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 200px;
+  width: 100%;
 }
 
 .blog-main-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  word-break: break-all;
+  display: -webkit-box;
   white-space: normal;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  height: 75px;
+  overflow: hidden;
   font-size: 2vh;
 }
 
-.blog-main-h1 {
-  display: flex;
-  align-items: center ;
-  justify-self: center;
-  font-size: 1.5vh;
+.blog-main-h2 {
+  font-size: 12pt;
+  display: -webkit-box;
+  white-space: normal;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 @media (max-width: 830px) {
@@ -97,7 +103,7 @@
     box-shadow: 5px 5px 5px #aaaaaa;
   }
 
-  .blog-main-h1 {
-    font-size: 2vh;
+  .blog-main-h2 {
+    font-size: 14pt;
   }
 }
