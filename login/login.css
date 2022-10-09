@@ -79,4 +79,63 @@ input:hover {
   cursor: auto;
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .login-wrapper {
+    width: 80vw;
+  }
+  .email-wrapper {
+    width: 80vw;
+  }
+  .email-wrapper label {
+    width: 80vw;
+    margin: 0;
+    padding: 0;
+  }
+  .email-wrapper input {
+    width: 80%;
+    margin: 0;
+  }
+  .password-wrapper {
+    width: 80vw;
+  }
+  .password-wrapper label {
+    width: 80vw;
+  }
+  .password-wrapper input {
+    width: 80%;
+  }
+  .login-button {
+    width: 80%;
+  }
+}
+@media (max-width: 767px) {
+  .login-wrapper {
+    width: 100vw;
+  }
+  .email-wrapper {
+    width: 100vw;
+  }
+  .email-wrapper label {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  .email-wrapper input {
+    width: 90%;
+    margin: 0;
+  }
+  .password-wrapper {
+    width: 100vw;
+  }
+  .password-wrapper label {
+    width: 100vw;
+  }
+  .password-wrapper input {
+    width: 90%;
+  }
+  .login-button {
+    width: 90%;
+  }
+}
+
 /*# sourceMappingURL=login.css.map */
