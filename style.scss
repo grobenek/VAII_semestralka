@@ -1,5 +1,7 @@
-@import "css/header.css";
-@import "css/_colors.scss";
+@import "css/colors";
+@import "css/header";
+@import "blog/blog-view";
+@import "login/login";
 
 * {
   margin: 0;
