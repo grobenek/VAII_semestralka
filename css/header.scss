@@ -1,5 +1,8 @@
+$header-height:70px;
+$header-margin-bottom:30px;
+
 header {
-  height: 70px;
+  height: $header-height;
   width: 100%;
   padding: 10px;
   overflow: hidden;
@@ -8,6 +11,7 @@ header {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin-bottom: $header-margin-bottom;
 
   .header-left {
     width: 70%;
