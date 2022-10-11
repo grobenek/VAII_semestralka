@@ -1,14 +1,17 @@
-@import "_colors.scss";
+$header-height:70px;
+$header-margin-bottom:30px;
 
 header {
-  height: 60px;
+  height: $header-height;
   width: 100%;
+  padding: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin-bottom: $header-margin-bottom;
 
   .header-left {
     width: 70%;
@@ -37,6 +40,10 @@ header {
     border-radius: 5px;
     transition: all 0.15s ease-in;
     transform: scale(1);
+
+    &:nth-child(2) {
+      background-color: $sign-in;
+    }
   }
 
   .header-right button:hover {
