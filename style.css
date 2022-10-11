@@ -286,6 +286,11 @@ body .blog-view-wrapper .sidebar .sidebar-autor-section .about-author-text span 
     position: relative;
   }
 }
+@media (max-height: 720px) {
+  body .blog-view-wrapper .sidebar {
+    height: 100vh;
+  }
+}
 @media (max-width: 690px) {
   body .blog-view-wrapper {
     flex-direction: column;
@@ -511,16 +516,16 @@ div.img {
 .blog-main-text {
   display: -webkit-box;
   white-space: normal;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  height: 75px;
+  height: 70px;
   overflow: hidden;
-  font-size: 2vh;
+  font-size: 1.21rem;
 }
 
 .blog-main-h2 {
-  font-size: 12pt;
+  font-size: 11pt;
   display: -webkit-box;
   white-space: normal;
   -webkit-line-clamp: 3;
@@ -552,6 +557,9 @@ div.img {
   }
   .blog-main-h2 {
     font-size: 14pt;
+  }
+  .blog-main-text {
+    font-size: 1.29rem;
   }
 }
 

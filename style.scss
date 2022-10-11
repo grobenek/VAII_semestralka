@@ -64,16 +64,16 @@ div.img {
 .blog-main-text {
   display: -webkit-box;
   white-space: normal;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  height: 75px;
+  height: 70px;
   overflow: hidden;
-  font-size: 2vh;
+  font-size: 1.21rem;
 }
 
 .blog-main-h2 {
-  font-size: 12pt;
+  font-size: 11pt;
   display: -webkit-box;
   white-space: normal;
   -webkit-line-clamp: 3;
@@ -107,5 +107,9 @@ div.img {
 
   .blog-main-h2 {
     font-size: 14pt;
+  }
+
+  .blog-main-text {
+    font-size: 1.29rem;
   }
 }
