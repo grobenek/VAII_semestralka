@@ -1,9 +1,9 @@
 /* Error: Undefined variable.
- *    ,
- * 14 |     background: $secondary-color;
- *    |                 ^^^^^^^^^^^^^^^^
- *    '
- *   blog-view.scss 14:17  root stylesheet */
+ *   ,
+ * 9 |     min-height: calc(100vh - ($header-margin-bottom * 2) - $header-height);
+ *   |                               ^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   blog-view.scss 9:31  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 14 \2502      background: $secondary-color;\a    \2502                  ^^^^^^^^^^^^^^^^\a    \2575 \a   blog-view.scss 14:17  root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 9 \2502      min-height: calc(100vh - ($header-margin-bottom * 2) - $header-height);\a   \2502                                ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   blog-view.scss 9:31  root stylesheet";
 }
