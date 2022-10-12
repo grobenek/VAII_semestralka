@@ -301,7 +301,6 @@ body .blog-view-wrapper .sidebar .sidebar-autor-section .about-author-text span 
     width: 100%;
   }
   body .blog-view-wrapper .blog-main-left .blog-header {
-    background-color: lightgreen;
     flex-direction: column;
   }
   body .blog-view-wrapper .blog-main-left .blog-header .blog-main-h1 {
