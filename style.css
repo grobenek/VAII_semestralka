@@ -96,8 +96,9 @@ header .logo {
   justify-content: center;
   align-items: center;
 }
-header .logo img {
-  scale: 60%;
+header .header-left div.logo img {
+  width: 60px;
+  height: 60px;
 }
 
 @media (max-width: 830px) {
