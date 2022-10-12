@@ -115,8 +115,9 @@ header {
     align-items: center;
   }
 
-  .logo img {
-    scale: 60%;
+  .header-left div.logo img {
+    width: 60px;
+    height: 60px;
   }
 }
 
