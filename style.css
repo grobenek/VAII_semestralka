@@ -166,7 +166,7 @@ body .blog-view-wrapper {
   min-height: calc(100vh - 60px - 70px);
   overflow: hidden;
   display: flex;
-  align-items: start;
+  align-items: stretch;
   flex-direction: row;
   background: #F5F5F5;
   border-radius: 20px;
@@ -184,10 +184,6 @@ body .blog-view-wrapper .blog-main-left .blog-header {
   border-bottom: #BEBEBE solid;
 }
 body .blog-view-wrapper .blog-main-left .blog-header .blog-info {
-  font-style: italic;
-}
-body .blog-view-wrapper .blog-main-left .blog-header .blog-main-header-info-fill {
-  font-weight: bold;
   font-style: italic;
 }
 body .blog-view-wrapper .blog-main-left .blog-header .blog-main-image {
@@ -223,10 +219,50 @@ body .blog-view-wrapper .blog-main-left .blog-view-main-text p::first-letter {
   padding-right: 10px;
   line-height: 0.7;
 }
+body .blog-view-wrapper .blog-main-left .comments-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-top: #BEBEBE solid;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0 10px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px #BEBEBE solid;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment:last-child {
+  border-bottom: none;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .comment-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  column-gap: 5px;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .comment-left img {
+  width: 50px;
+  aspect-ratio: 1/1;
+  border: black solid;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .comment-left .comment-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .comment-left .comment-info .comment-date {
+  font-size: 9pt;
+}
 body .blog-view-wrapper .sidebar {
-  height: calc(100vh - 60px - 70px);
   width: 200px;
-  border-left: #BEBEBE solid;
+  border-left: #BEBEBE 1px solid;
   position: relative;
   padding: 20px;
   flex-grow: 1;
@@ -267,6 +303,14 @@ body .blog-view-wrapper .sidebar .sidebar-autor-section .about-author-text span 
   font-style: italic;
   font-weight: bold;
   text-decoration: none;
+}
+body .blog-view-info-fill {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.long-text {
+  font-family: "Times New Roman";
 }
 
 @media (max-width: 960px) {
