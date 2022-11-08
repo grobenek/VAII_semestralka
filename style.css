@@ -173,7 +173,8 @@ body .blog-view-wrapper {
 }
 body .blog-view-wrapper .blog-main-left {
   width: 70%;
-  height: 100%;
+  min-height: 20vh;
+  overflow: hidden;
 }
 body .blog-view-wrapper .blog-main-left .blog-header {
   display: flex;
@@ -222,7 +223,7 @@ body .blog-view-wrapper .blog-main-left .blog-view-main-text p::first-letter {
 body .blog-view-wrapper .blog-main-left .comments-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   border-top: #BEBEBE solid;
 }
@@ -230,7 +231,8 @@ body .blog-view-wrapper .blog-main-left .comments-wrap .comment {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  width: 100%;
+  justify-content: flex-start;
   margin: 10px 0 10px 10px;
   padding-bottom: 10px;
   border-bottom: 1px #BEBEBE solid;

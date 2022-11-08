@@ -73,27 +73,23 @@ foreach ($decodedComments as $comment) {
         </div>
         <div class="comments-wrap">
             <?php
-            foreach ($comments
-
-            as $comment) {
-            ?>
-            <div class="comment">
-                <div class="comment-left">
-                    <img src="../res/images/sample-3.jpg" alt="profile picture">
-                    <div class="comment-info">
-                        <span class="blog-view-info-fill">Sample user</span>
-                        <span class="comment-date">22.10.2022</div>
+            foreach ($comments as $comment) {
+                ?>
+                <div class="comment">
+                    <div class="comment-left">
+                        <img src="../res/images/sample-3.jpg" alt="profile picture">
+                        <div class="comment-info">
+                            <span class="blog-view-info-fill">Sample user</span>
+                            <span class="comment-date">22.10.2022</div>
+                    </div>
+                    <div class="comment-right">
+                        <p class="long-text"><?php
+                            echo $comment->getText();
+                            ?></p>
+                    </div>
                 </div>
-                <div class="comment-right">
-                    <p class="long-text"><?php
-                        echo $comment->getText();
-                    ?></p>
-                </div>
-            </div>
-            <?php
+                <?php
             }
-
-            // echo $decodedComments;
             ?>
         </div>
     </div>
