@@ -1,3 +1,30 @@
+<?php
+
+require_once('../model/Comment.php');
+
+/**
+ * @var Comment $response
+ * @var Comment $comment
+ *
+ */
+
+$response = Comment::getAllComments();
+if (!$response) {
+    $decodedComments = "CHYBA";
+    return;
+}
+$decodedComments = json_decode($response, true);
+
+$comments = [];
+
+foreach ($decodedComments as $comment) {
+    $commentToAdd = new Comment();
+    $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"]);
+    $comments[] = $commentToAdd;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +32,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>NameOfBlog</title>
-
 </head>
 
 <body>
+<?php require "../components/header.php" ?>
 
 <div class="blog-view-wrapper">
     <div class="blog-main-left">
@@ -44,68 +71,30 @@
                 nulla officia officiis provident reiciendis tempora tempore, veniam.
             </p>
         </div>
-        <div class="comments-wrap" id="comments-wrap">
+        <div class="comments-wrap">
+            <?php
+            foreach ($comments
+
+            as $comment) {
+            ?>
             <div class="comment">
                 <div class="comment-left">
                     <img src="../res/images/sample-3.jpg" alt="profile picture">
                     <div class="comment-info">
                         <span class="blog-view-info-fill">Sample user</span>
-                        <span class="comment-date">13.10.2022 16:21</span>
-                    </div>
+                        <span class="comment-date">22.10.2022</div>
                 </div>
                 <div class="comment-right">
-                    <p class="long-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam beatae
-                        blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                        aliquam beatae blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                        aliquam beatae blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                        aliquam beatae blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                        aliquam beatae blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                        aliquam beatae blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas.</p>
+                    <p class="long-text"><?php
+                        echo $comment->getText();
+                    ?></p>
                 </div>
             </div>
-            <div class="comment">
-                <div class="comment-left">
-                    <img src="../res/images/sample-5.jpg" alt="profile picture">
-                    <div class="comment-info">
-                        <span class="blog-view-info-fill">Sample user</span>
-                        <span class="comment-date">13.10.2022 09:36</span>
-                    </div>
-                </div>
-                <div class="comment-right">
-                    <p class="long-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam beatae
-                        blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        rep illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                        aliquam beatae blanditiis consectetur
-                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
-                        reprehenderit tempore, voluptas.</p>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-left">
-                    <img src="../res/images/Sample-Picture.jpg" alt="profile picture">
-                    <div class="comment-info">
-                        <span class="blog-view-info-fill">Sample user</span>
-                        <span class="comment-date">13.10.2022 09:36</span>
-                    </div>
-                </div>
-                <div class="comment-right">
-                    <p class="long-text">Loionias necessitatibus similique ut.</p>
-                </div>
-            </div>
+            <?php
+            }
+
+            // echo $decodedComments;
+            ?>
         </div>
     </div>
 
