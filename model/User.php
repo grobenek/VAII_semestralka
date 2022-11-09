@@ -13,9 +13,9 @@ class User
 
     public function setAtributes($userId, $login, $isAdmin)
     {
-        $this->$userId = $userId;
-        $this->$login = $login;
-        $this->$isAdmin = $isAdmin;
+        $this->userId = $userId;
+        $this->login = $login;
+        $this->isAdmin = $isAdmin;
     }
 
 
@@ -89,5 +89,39 @@ class User
 
         curl_close($curl);
         return json_decode($users, true);
+    }
+
+    static function getUserById($id)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/user/'.$id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        if (!$response) {
+            http_response_code(404);
+            include('../error_page/my_404.php');
+            die();
+        }
+
+        curl_close($curl);
+        $decodedUsers = json_decode($response, true);
+
+        $userToReturn = new User();
+        $userToReturn->setAtributes($decodedUsers["userId"], $decodedUsers["login"], $decodedUsers["isAdmin"]);
+        return $userToReturn;
     }
 }
