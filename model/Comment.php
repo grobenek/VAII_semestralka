@@ -138,7 +138,7 @@ class Comment
 
         if (!$comments) {
             http_response_code(404);
-            include('../error_page/my_404.php'); // provide your own HTML for the error page
+            include('../error_page/my_404.php');
             die();
         }
 

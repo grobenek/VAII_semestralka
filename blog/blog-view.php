@@ -1,26 +1,15 @@
 <?php
 
 require_once('../model/Comment.php');
+require_once ('../model/User.php');
 
 /**
- * @var Comment $response
+ * @var Comment $comments
  * @var Comment $comment
  *
  */
 
-$response = Comment::getAllComments();
-if (!$response) {
-    $response = "CHYBA";
-    return;
-}
-
-$comments = [];
-
-foreach ($response as $comment) {
-    $commentToAdd = new Comment();
-    $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"]);
-    $comments[] = $commentToAdd;
-}
+$comments = Comment::getAllComments();
 ?>
 
 
@@ -71,14 +60,16 @@ foreach ($response as $comment) {
             </p>
         </div>
         <div class="comments-wrap">
+            <form action=""></form>
             <?php
             foreach ($comments as $comment) {
+                $user = User::getUserById($comment->getAuthorId());
                 ?>
                 <div class="comment">
                     <div class="comment-left">
                         <img src="../res/images/sample-3.jpg" alt="profile picture">
                         <div class="comment-info">
-                            <span class="blog-view-info-fill">Sample user</span>
+                            <span class="blog-view-info-fill"> <?php echo $user->getLogin(); ?></span>
                             <span class="comment-date">22.10.2022</div>
                     </div>
                     <div class="comment-right">
@@ -92,7 +83,6 @@ foreach ($response as $comment) {
             ?>
         </div>
     </div>
-
     <div class="sidebar">
         <div class="sidebar-autor-section">
             <div class="about-author-container">
