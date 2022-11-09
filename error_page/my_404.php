@@ -1,6 +1,5 @@
-
 <?php
-
+include_once $_SERVER["DOCUMENT_ROOT"]."/semestralka/config/dir_global.php";
 require "../components/head.php";
 require "../components/header.php" ?>
 

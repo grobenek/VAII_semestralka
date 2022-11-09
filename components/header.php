@@ -1,7 +1,7 @@
 <header>
     <div class="header-left">
         <div class="logo">
-            <a href="../index.php"><img src="../res/images/logo.png" alt="logo"></a>
+            <a href="<?php echo $GLOBALS['dir']?>/index.php"><img src="<?php echo $GLOBALS['dir']?>/res/images/logo.png" alt="logo"></a>
         </div>
         <nav class="main-navigation">
             <ul>
@@ -18,11 +18,18 @@
         </nav>
     </div>
     <div class="header-right">
-        <button onclick="window.location.href= '../login/login.html';">
+        <button onclick="window.location.href= '<?php echo $GLOBALS['dir']?>/login/login.php';">
             My blogs
         </button>
-        <button onclick="window.location.href= '../login/login.html';">
-            Sign in
-        </button>
+        <?php if (!isset($_COOKIE['user'])) { ?>
+            <button onclick="window.location.href= '<?php echo $GLOBALS['dir']?>/login/login.php';">
+                Sign in
+            </button>
+        <?php } else { ?>
+            <button onclick="window.location.href= '<?php echo $GLOBALS['dir']?>/login/sign_out.php';">
+                Sign out
+            </button>
+        <?php } ?>
     </div>
 </header>
+<body>

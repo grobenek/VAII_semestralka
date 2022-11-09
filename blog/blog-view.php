@@ -1,5 +1,7 @@
 <?php
 
+use model\Comment;
+
 require_once('../model/Comment.php');
 require_once('../model/User.php');
 
@@ -10,26 +12,15 @@ require_once('../model/User.php');
  */
 
 $comments = Comment::getAllComments();
+require "../components/head.php";
+require "../components/header.php";
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <title>NameOfBlog</title>
-</head>
-
-<body>
-<?php require "../components/header.php" ?>
 
 <div class="blog-view-wrapper">
     <div class="blog-main-left">
         <div class="blog-header">
             <div class="blog-main-image">
-                <img src="../res/images/Sample-Picture.jpg" alt="blog-picture">
+                <img src="<?php echo $GLOBALS['dir']?>/res/images/Sample-Picture.jpg" alt="blog-picture">
             </div>
 
             <div class="blog-main-h1">
@@ -69,7 +60,7 @@ $comments = Comment::getAllComments();
                 <div class="comment">
                     <div class="container-comment-text">
                         <div class="comment-left">
-                            <img src="../res/images/sample-3.jpg" alt="profile picture">
+                            <img src="<?php echo $GLOBALS['dir']?>/res/images/sample-3.jpg" alt="profile picture">
                             <div class="comment-info">
                                 <span class="blog-view-info-fill"> <?php echo $user->getLogin(); ?></span>
                                 <span class="comment-date"><?php
@@ -82,10 +73,12 @@ $comments = Comment::getAllComments();
                                 ?></p>
                         </div>
                     </div>
+                    <?php if (isset($_COOKIE['user']) && $_COOKIE['user'] == $comment->getAuthorId()) { ?>
                     <div class="container-form">
                         <button type="button" class="comment-button">edit</button>
                         <button type="button" class="comment-button delete">delete</button>
                     </div>
+                    <?php } ?>
                 </div>
                 <?php
             }
@@ -103,7 +96,7 @@ $comments = Comment::getAllComments();
             </div>
             <div class="about-author-text">
                 <span>
-                <a href="../login/login.html">User</a>
+                <a href=<?php echo $GLOBALS['dir']?>"/login/login.php">User</a>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolores et laborum laudantium omnis, possimus provident qui rerum sed totam vitae voluptate? Dolorum hic impedit ipsa officia sequi tenetur ut?
             </span>
             </div>
