@@ -11,7 +11,7 @@
 <header>
     <div class="header-left">
         <div class="logo">
-            <a href="index.html"><img src="res/images/logo.png" alt="logo"></a>
+            <a href="index.php"><img src="res/images/logo.png" alt="logo"></a>
         </div>
         <nav class="main-navigation">
             <ul>
@@ -39,9 +39,9 @@
 
 <div class="blog-wrapper">
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
+            <a href="blog/blog-view.php">
                 <div class="img" style='background-image: url("res/images/Sample-Picture.jpg");'>
                 </div>
             </a>
@@ -57,9 +57,9 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
+            <a href="blog/blog-view.php">
                 <div class="img" style='background-image: url("res/images/logo.png");'>
                 </div>
             </a>
@@ -74,9 +74,9 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
+            <a href="blog/blog-view.php">
                 <div class="img" style='background-image: url("res/images/sample-5.jpg");'>
                 </div>
             </a>
@@ -90,9 +90,9 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
+            <a href="blog/blog-view.php">
                 <div class="img" style='background-image: url("res/images/sample-3.jpg");'>
                 </div>
             </a>
@@ -106,9 +106,9 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
+            <a href="blog/blog-view.php">
                 <div class="img" style='background-image: url("res/images/logo.png");'>
                 </div>
             </a>
@@ -123,9 +123,9 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
+            <a href="blog/blog-view.php">
                 <div class="img" style='background-image: url("res/images/Sample-Picture.jpg");'>
                 </div>
             </a>
@@ -139,9 +139,9 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
+            <a href="blog/blog-view.php">
                 <div class="img" style='background-image: url("res/images/sample-3.jpg");'>
                 </div>
             </a>

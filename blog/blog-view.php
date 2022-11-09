@@ -1,7 +1,7 @@
 <?php
 
 require_once('../model/Comment.php');
-require_once ('../model/User.php');
+require_once('../model/User.php');
 
 /**
  * @var Comment $comments
@@ -67,25 +67,32 @@ $comments = Comment::getAllComments();
                 $user = User::getUserById($comment->getAuthorId());
                 ?>
                 <div class="comment">
-                    <div class="comment-left">
-                        <img src="../res/images/sample-3.jpg" alt="profile picture">
-                        <div class="comment-info">
-                            <span class="blog-view-info-fill"> <?php echo $user->getLogin(); ?></span>
-                            <span class="comment-date"><?php
-                            $timestampInRightFormat = date("d.m.Y H:i", strtotime($comment->getTimestamp()));
-                            echo $timestampInRightFormat;
-                            ?></div>
+                    <div class="container-comment-text">
+                        <div class="comment-left">
+                            <img src="../res/images/sample-3.jpg" alt="profile picture">
+                            <div class="comment-info">
+                                <span class="blog-view-info-fill"> <?php echo $user->getLogin(); ?></span>
+                                <span class="comment-date"><?php
+                                echo $comment->getTimestamp();
+                                ?></div>
+                        </div>
+                        <div class="comment-right">
+                            <p class="long-text"><?php
+                                echo $comment->getText();
+                                ?></p>
+                        </div>
                     </div>
-                    <div class="comment-right">
-                        <p class="long-text"><?php
-                            echo $comment->getText();
-                            ?></p>
+                    <div class="container-form">
+                        <button type="button" class="comment-button">edit</button>
+                        <button type="button" class="comment-button delete">delete</button>
                     </div>
                 </div>
                 <?php
             }
             ?>
         </div>
+        <!--@TODO spravit z comment left a right jedno velke divko
+                        comment flex column a tam pridat buttony-->
     </div>
     <div class="sidebar">
         <div class="sidebar-autor-section">

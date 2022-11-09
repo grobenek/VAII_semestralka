@@ -11,7 +11,7 @@ class User
     {
     }
 
-    public function setAtributes($userId, $login, $isAdmin)
+    public function setAttributes($userId, $login, $isAdmin)
     {
         $this->userId = $userId;
         $this->login = $login;
@@ -96,7 +96,7 @@ class User
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://localhost:8080/api/user/'.$id,
+            CURLOPT_URL => 'http://localhost:8080/api/user/' . $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -121,7 +121,7 @@ class User
         $decodedUsers = json_decode($response, true);
 
         $userToReturn = new User();
-        $userToReturn->setAtributes($decodedUsers["userId"], $decodedUsers["login"], $decodedUsers["isAdmin"]);
+        $userToReturn->setAttributes($decodedUsers["userId"], $decodedUsers["login"], $decodedUsers["isAdmin"]);
         return $userToReturn;
     }
 }

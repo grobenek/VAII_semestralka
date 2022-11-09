@@ -67,11 +67,11 @@ class Comment
     }
 
     /**
-     * @return mixed
+     * @return false|string
      */
     public function getTimestamp()
     {
-        return $this->timestamp;
+        return date("d.m.Y H:i", strtotime($this->timestamp));
     }
 
     /**

@@ -229,13 +229,35 @@ body .blog-view-wrapper .blog-main-left .comments-wrap {
 }
 body .blog-view-wrapper .blog-main-left .comments-wrap .comment {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   width: 100%;
   justify-content: flex-start;
   margin: 10px 0 10px 10px;
-  padding-bottom: 10px;
+  padding: 15px;
   border-bottom: 1px #BEBEBE solid;
+  row-gap: 15px;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .container-form button {
+  padding: 10px;
+  border: none;
+  background-color: #7ae8e8;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: all 0.15s ease-in;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .container-form button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .container-form button.delete {
+  background-color: red;
+  border: none;
+  color: white;
+}
+body .blog-view-wrapper .blog-main-left .comments-wrap .comment .container-comment-text {
+  display: flex;
+  flex-direction: row;
 }
 body .blog-view-wrapper .blog-main-left .comments-wrap .comment:last-child {
   border-bottom: none;
