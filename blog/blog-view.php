@@ -10,14 +10,13 @@ require_once('../model/Comment.php');
 
 $response = Comment::getAllComments();
 if (!$response) {
-    $decodedComments = "CHYBA";
+    $response = "CHYBA";
     return;
 }
-$decodedComments = json_decode($response, true);
 
 $comments = [];
 
-foreach ($decodedComments as $comment) {
+foreach ($response as $comment) {
     $commentToAdd = new Comment();
     $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"]);
     $comments[] = $commentToAdd;

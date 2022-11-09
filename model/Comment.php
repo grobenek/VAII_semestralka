@@ -135,8 +135,6 @@ class Comment
         $comments = curl_exec($curl);
 
         curl_close($curl);
-        return $comments;
+        return json_decode($comments, true);
     }
-
-
 }
