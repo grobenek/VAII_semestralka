@@ -115,7 +115,7 @@ class Comment
     }
 
     /**
-     * @return bool|string
+     * @return array
      */
     static function getAllComments()
     {
@@ -135,6 +135,23 @@ class Comment
         $comments = curl_exec($curl);
 
         curl_close($curl);
-        return json_decode($comments, true);
+
+        if (!$comments) {
+            http_response_code(404);
+            include('../error_page/my_404.php'); // provide your own HTML for the error page
+            die();
+        }
+
+        $decodedComments = json_decode($comments, true);
+
+        $commentsToReturn = [];
+
+        foreach ($decodedComments as $comment) {
+            $commentToAdd = new Comment();
+            $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"]);
+            $commentsToReturn[] = $commentToAdd;
+        }
+
+        return $commentsToReturn;
     }
 }
