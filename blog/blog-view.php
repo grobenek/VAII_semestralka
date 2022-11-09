@@ -60,7 +60,8 @@ $comments = Comment::getAllComments();
             </p>
         </div>
         <div class="comments-wrap">
-            <form action=""></form>
+            <form action="">
+            </form>
             <?php
             foreach ($comments as $comment) {
                 $user = User::getUserById($comment->getAuthorId());
@@ -70,7 +71,10 @@ $comments = Comment::getAllComments();
                         <img src="../res/images/sample-3.jpg" alt="profile picture">
                         <div class="comment-info">
                             <span class="blog-view-info-fill"> <?php echo $user->getLogin(); ?></span>
-                            <span class="comment-date">22.10.2022</div>
+                            <span class="comment-date"><?php
+                            $timestampInRightFormat = date("d.m.Y H:i", strtotime($comment->getTimestamp()));
+                            echo $timestampInRightFormat;
+                            ?></div>
                     </div>
                     <div class="comment-right">
                         <p class="long-text"><?php
