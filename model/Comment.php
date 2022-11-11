@@ -13,6 +13,8 @@ class Comment
 
     private $text;
 
+    private $isEdited;
+
     public function __construct()
     {
 
@@ -25,13 +27,30 @@ class Comment
      * @param $blogId
      * @param $text
      */
-    public function setAtributes($commentId, $authorId, $timestamp, $blogId, $text)
+    public function setAtributes($commentId, $authorId, $timestamp, $blogId, $text, $isEdited)
     {
         $this->commentId = $commentId;
         $this->authorId = $authorId;
         $this->timestamp = $timestamp;
         $this->blogId = $blogId;
         $this->text = $text;
+        $this->isEdited = $isEdited;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsEdited()
+    {
+        return $this->isEdited;
+    }
+
+    /**
+     * @param mixed $isEdited
+     */
+    public function setIsEdited($isEdited)
+    {
+        $this->isEdited = $isEdited;
     }
 
 
@@ -149,7 +168,7 @@ class Comment
 
         foreach ($decodedComments as $comment) {
             $commentToAdd = new Comment();
-            $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"]);
+            $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"], $comment["isEdited"]);
             $commentsToReturn[] = $commentToAdd;
         }
 
