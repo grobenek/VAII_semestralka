@@ -11,6 +11,7 @@ if (isset($_POST['authorId']) && isset($_POST['blogId']) && isset($_POST['text']
     $authorId = $_POST['authorId'];
     $blogId = $_POST['blogId'];
     $text = $_POST['text'];
+    $text = rtrim($text, " \n\r\t\v\x00");
     $commentId = $_POST['commentId'];
 } else {
     http_response_code(404);
