@@ -4,41 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <title>NameOfBlog</title>
+
 </head>
 
 <body>
-<header>
-    <div class="header-left">
-        <div class="logo">
-            <a href="../index.html"><img src="../res/images/logo.png" alt="logo"></a>
-        </div>
-        <nav class="main-navigation">
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">About us</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="header-right">
-        <button onclick="window.location.href= '../login/login.html';">
-            My blogs
-        </button>
-        <button onclick="window.location.href= '../login/login.html';">
-            Sign in
-        </button>
-    </div>
-</header>
 
 <div class="blog-view-wrapper">
     <div class="blog-main-left">
@@ -52,14 +22,14 @@
                     For a More Creative Brain Follow These 5 Steps
                 </h1>
                 <span class="blog-main-h1-info">Written by:</span>
-                <span class="blog-main-header-info-fill">User</span>
+                <span class="blog-view-info-fill">User</span>
                 <span> | </span>
                 <span class="blog-main-h1-info">Date:</span>
-                <span class="blog-main-header-info-fill">09.10.2022</span>
+                <span class="blog-view-info-fill">09.10.2022</span>
             </div>
         </div>
         <div class="blog-view-main-text">
-            <p class="long-time-text">
+            <p class="long-text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque excepturi quibusdam voluptatibus. Ad
                 alias, atque illum magnam non nostrum nulla repellendus. Delectus nulla officia officiis provident
                 reiciendis tempora tempore, veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
@@ -74,6 +44,69 @@
                 nulla officia officiis provident reiciendis tempora tempore, veniam.
             </p>
         </div>
+        <div class="comments-wrap" id="comments-wrap">
+            <div class="comment">
+                <div class="comment-left">
+                    <img src="../res/images/sample-3.jpg" alt="profile picture">
+                    <div class="comment-info">
+                        <span class="blog-view-info-fill">Sample user</span>
+                        <span class="comment-date">13.10.2022 16:21</span>
+                    </div>
+                </div>
+                <div class="comment-right">
+                    <p class="long-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam beatae
+                        blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                        aliquam beatae blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                        aliquam beatae blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                        aliquam beatae blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                        aliquam beatae blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                        aliquam beatae blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas.</p>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-left">
+                    <img src="../res/images/sample-5.jpg" alt="profile picture">
+                    <div class="comment-info">
+                        <span class="blog-view-info-fill">Sample user</span>
+                        <span class="comment-date">13.10.2022 09:36</span>
+                    </div>
+                </div>
+                <div class="comment-right">
+                    <p class="long-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam beatae
+                        blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        rep illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                        aliquam beatae blanditiis consectetur
+                        cum delectus esse excepturi id illum iure minus nostrum nulla omnis placeat quam quas
+                        reprehenderit tempore, voluptas.</p>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-left">
+                    <img src="../res/images/Sample-Picture.jpg" alt="profile picture">
+                    <div class="comment-info">
+                        <span class="blog-view-info-fill">Sample user</span>
+                        <span class="comment-date">13.10.2022 09:36</span>
+                    </div>
+                </div>
+                <div class="comment-right">
+                    <p class="long-text">Loionias necessitatibus similique ut.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="sidebar">
@@ -85,7 +118,7 @@
             </div>
             <div class="about-author-text">
                 <span>
-                <a href="../login/login.html">User</a>
+                <a href="../login/login.php">User</a>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolores et laborum laudantium omnis, possimus provident qui rerum sed totam vitae voluptate? Dolorum hic impedit ipsa officia sequi tenetur ut?
             </span>
             </div>

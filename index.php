@@ -1,48 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+<?php
+require "./components/head.php";
+require "./components/header.php";
 
-<header>
-    <div class="header-left">
-        <div class="logo">
-            <a href="index.html"><img src="res/images/logo.png" alt="logo"></a>
-        </div>
-        <nav class="main-navigation">
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">About us</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="header-right">
-        <button onclick="window.location.href= 'login/login.html';">
-            My blogs
-        </button>
-        <button onclick="window.location.href= 'login/login.html';">
-            Sign in
-        </button>
-    </div>
-</header>
+include_once "./config/dir_global.php";
+?>
 
 <div class="blog-wrapper">
-
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
-                <div class="img" style='background-image: url("res/images/Sample-Picture.jpg");'>
+            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/Sample-Picture.jpg");'>
                 </div>
             </a>
         </div>
@@ -57,10 +24,10 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
-                <div class="img" style='background-image: url("res/images/logo.png");'>
+            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/logo.png");'>
                 </div>
             </a>
         </div>
@@ -74,10 +41,10 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
-                <div class="img" style='background-image: url("res/images/sample-5.jpg");'>
+            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/sample-5.jpg");'>
                 </div>
             </a>
         </div>
@@ -90,10 +57,10 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
-                <div class="img" style='background-image: url("res/images/sample-3.jpg");'>
+            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/sample-3.jpg");'>
                 </div>
             </a>
         </div>
@@ -106,10 +73,10 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
-                <div class="img" style='background-image: url("res/images/logo.png");'>
+            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/logo.png");'>
                 </div>
             </a>
         </div>
@@ -123,10 +90,10 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
-                <div class="img" style='background-image: url("res/images/Sample-Picture.jpg");'>
+            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/Sample-Picture.jpg");'>
                 </div>
             </a>
         </div>
@@ -139,10 +106,10 @@
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='blog/blog-view.html'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="blog/blog-view.html">
-                <div class="img" style='background-image: url("res/images/sample-3.jpg");'>
+            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/sample-3.jpg");'>
                 </div>
             </a>
         </div>
