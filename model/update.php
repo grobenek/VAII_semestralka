@@ -31,10 +31,10 @@ if (!empty($authorId) && !empty($blogId) && !empty($text) && !empty($commentId))
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'PUT',
         CURLOPT_POSTFIELDS => '{
-        "commentId": '.$commentId.',
-        "authorId": '.$authorId.',
-        "blogId": '.$blogId.',
-        "text": "'.$text.'"
+        "commentId": ' . $commentId . ',
+        "authorId": ' . $authorId . ',
+        "blogId": ' . $blogId . ',
+        "text": "' . $text . '"
 }',
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json'
@@ -45,7 +45,7 @@ if (!empty($authorId) && !empty($blogId) && !empty($text) && !empty($commentId))
 
     curl_close($curl);
 
-    header('Location:' . $GLOBALS['dir'] . '/blog/blog-view.php?e='.$response);
+    header('Location:' . $GLOBALS['dir'] . '/blog/blog-view.php');
 } else {
     http_response_code(404);
     include('../error_page/my_404.php');

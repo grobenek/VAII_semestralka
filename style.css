@@ -447,6 +447,10 @@ body .blog-view-info-fill {
   cursor: pointer;
 }
 
+.register-link {
+  color: #BEBEBE;
+}
+
 input {
   height: 3vh;
   width: 20vw;

@@ -51,15 +51,20 @@ require "../components/header.php";
             </p>
         </div>
         <div class="comments-wrap">
-            <form action="<?php echo $GLOBALS['dir'] ?>/model/create.php" method="post">
-                <!--                TODO BLOG ID ZMENIT PODLA ID Z DATABAZY-->
-                <input type="hidden" value="1" name="blog">
-                <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="author">
-                <!--                TODO DAT STYLE-->
-                <textarea name="text" required maxlength="65535" style="resize: none"
-                          placeholder="Start writing your comment..."></textarea>
-                <button type="submit">Post</button>
-            </form>
+            <?php
+            if (isset($_COOKIE['user'])) { ?>
+                <form action="<?php echo $GLOBALS['dir'] ?>/model/create.php" method="post">
+                    <!--                TODO BLOG ID ZMENIT PODLA ID Z DATABAZY-->
+                    <input type="hidden" value="1" name="blogId">
+                    <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="authorId">
+                    <!--                TODO DAT STYLE-->
+                    <textarea name="text" required maxlength="65535" style="resize: none"
+                              placeholder="Start writing your comment..."></textarea>
+                    <button type="submit">Post</button>
+                </form>
+            <?php
+            }
+            ?>
             <?php
             foreach ($comments as $comment) {
                 $user = User::getUserById($comment->getAuthorId());
@@ -130,11 +135,6 @@ require "../components/header.php";
 
 <script>
     function showEditComment(commentId, blogId, authorId, text) {
-        console.log("commentId " + commentId);
-        console.log("blogId " + blogId);
-        console.log("authorId " + authorId);
-        console.log("text " + text);
-
         let commentWrap = document.querySelector("div#containerCommentText-" + commentId);
 
         commentWrap.innerHTML = '' +

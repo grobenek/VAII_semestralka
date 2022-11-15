@@ -5,9 +5,9 @@ $authorId = null;
 $blogId = null;
 $text = null;
 
-if (isset($_POST['author']) && isset($_POST['blog']) && isset($_POST['text'])) {
-    $authorId = $_POST['author'];
-    $blogId = $_POST['blog'];
+if (isset($_POST['authorId']) && isset($_POST['blogId']) && isset($_POST['text'])) {
+    $authorId = $_POST['authorId'];
+    $blogId = $_POST['blogId'];
     $text = $_POST['text'];
 }
 
@@ -26,7 +26,7 @@ if (!empty($authorId) && !empty($blogId) && !empty($text)) {
         CURLOPT_POSTFIELDS =>'{
         "authorId": '.$authorId.',
         "blogId": '.$blogId.',
-        "text": '.$text.'
+        "text": "'.$text.'"
     }',
         CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json'

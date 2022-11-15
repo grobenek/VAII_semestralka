@@ -1,6 +1,7 @@
 <?php
-
 namespace model;
+include_once $_SERVER["DOCUMENT_ROOT"]."/semestralka/config/dir_global.php";
+
 class Comment
 {
     private $commentId;

@@ -1,7 +1,7 @@
 <?php
-include_once $_SERVER["DOCUMENT_ROOT"]."/semestralka/config/dir_global.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/semestralka/config/dir_global.php";
 
-$commentId=null;
+$commentId = null;
 
 if (isset($_POST['commentId'])) {
     $commentId = $_POST['commentId'];
@@ -11,7 +11,7 @@ if (!empty($commentId)) {
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://localhost:8080/api/comment/'.$commentId,
+        CURLOPT_URL => 'http://localhost:8080/api/comment/' . $commentId,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -27,6 +27,5 @@ if (!empty($commentId)) {
     $response = curl_exec($curl);
 
     curl_close($curl);
-
-    header('Location:'.$GLOBALS['dir'].'/blog/blog-view.php');
 }
+header('Location:' . $GLOBALS['dir'] . '/blog/blog-view.php');

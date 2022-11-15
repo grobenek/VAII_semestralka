@@ -1,11 +1,8 @@
 <?php
-$error = null;
-if (isset($_GET['e'])) {
-    $error = $_GET["e"];
-}
+
 require "../components/head.php";
 ?>
-<form action="./log_in.php" method="post" class="login-wrapper">
+<form action="./register_user.php" method="post" class="login-wrapper">
     <div class="login-logo">
         <h1>Welcome!</h1>
         <img src="<?php echo $GLOBALS['dir'] ?>/res/images/logo.png" alt="logo">
@@ -16,22 +13,16 @@ require "../components/head.php";
             <!--            @TODO zmenit ak bude validator ukazovat label chybu
                                 pridat label a dat ho ako visibility hidden-->
             <input required type="email" name="email" id="email" placeholder="Email">
+            <input required type="text" name="login" style="margin-top: 5px" placeholder="Username">
         </div>
 
         <div class="password-wrapper">
-            <input required type="password" minlength="4" name="password" placeholder="Password">
+            <input required type="password" name="password" placeholder="Password">
         </div>
-        <?php
-        if (isset($error)) {
-            echo "<span>" . $error . "</span>";
-        }
-        ?>
     </div>
 
-    <a class="register-link" href="./register.php">Register here!</a>
-
     <button type="submit" class="login-button">
-        Sign in
+        Register
     </button>
 </form>
 </body>
