@@ -32,4 +32,3 @@
         <?php } ?>
     </div>
 </header>
-<body>

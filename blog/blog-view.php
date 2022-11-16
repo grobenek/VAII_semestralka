@@ -85,7 +85,7 @@ require "../components/header.php";
                             </div>
                         </div>
                         <div class="comment-right" id="containerCommentText-<?php echo $comment->getCommentId() ?>">
-                            <p class="long-text" id="commentText"><?php
+                            <p class="long-text"><?php
                                 echo $comment->getText();
                                 ?></p>
                         </div>
@@ -116,7 +116,7 @@ require "../components/header.php";
             </div>
             <div class="about-author-text">
                 <span>
-                <a href=<?php echo $GLOBALS['dir'] ?>"/login/login.php">User</a>
+                <a href=<?php echo $GLOBALS['dir'] ?>/login/login.php>User</a>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolores et laborum laudantium omnis, possimus provident qui rerum sed totam vitae voluptate? Dolorum hic impedit ipsa officia sequi tenetur ut?
             </span>
             </div>
