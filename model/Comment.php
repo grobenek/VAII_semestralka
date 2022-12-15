@@ -138,7 +138,7 @@ class Comment
     /**
      * @return array
      */
-    static function getAllComments()
+    static function getAllComments(): array
     {
         $curl = curl_init();
 
