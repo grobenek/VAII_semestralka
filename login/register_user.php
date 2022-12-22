@@ -25,10 +25,10 @@ if (!empty($email) && !empty($password) && !empty($login)) {
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS =>'{
+        CURLOPT_POSTFIELDS => '{
         "login": "'.$login.'",
         "password": "'.$password.'",
-        "is_admin": 0,
+        "isAdmin": false,
         "email": "'.$email.'"
     }',
         CURLOPT_HTTPHEADER => array(
@@ -36,10 +36,13 @@ if (!empty($email) && !empty($password) && !empty($login)) {
         ),
     ));
 
-    $userId = json_decode(curl_exec($curl), true); //TODO premapovat na usera a vratit jeho id - v databaze vyriesit error
-    $userId = $userId[0]->getUserId();
+    $createdUSer = curl_exec($curl);
+
+    $returnedUser = json_decode($createdUSer, true);
 
     curl_close($curl);
+
+    $userId = $returnedUser['userId'];
 
     if (is_numeric($userId)) {
         setcookie('user', $userId, time() + 60 * 60 * 24, "/");
