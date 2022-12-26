@@ -1,9 +1,11 @@
 <?php
 
 use model\Comment;
+use model\Blog;
 
 require_once('../model/Comment.php');
 require_once('../model/User.php');
+require_once('../model/Blog.php');
 
 /**
  * @var Comment $comments
@@ -12,6 +14,18 @@ require_once('../model/User.php');
  */
 
 $comments = Comment::getAllComments();
+
+if (isset($_GET['blogId'])) {
+    $blogId = $_GET['blogId'];
+} else {
+    http_response_code(404);
+    include('../error_page/my_404.php');
+    die();
+}
+
+$blog = Blog::getBlogById($blogId); //TODO pri nacitani blogu poslat jeho id cez URL cez post (asi) a na zaklade neho nacitat vsetko mozne z databazy
+$author = User::getUserById($blog->getAuthorId());
+
 require "../components/head.php";
 require "../components/header.php";
 ?>
@@ -28,26 +42,26 @@ require "../components/header.php";
                     For a More Creative Brain Follow These 5 Steps
                 </h1>
                 <span class="blog-main-h1-info">Written by:</span>
-                <span class="blog-view-info-fill">User</span>
+                <span class="blog-view-info-fill">
+                    <?php
+                    echo $author->getLogin();
+                    ?>
+                </span>
                 <span> | </span>
                 <span class="blog-main-h1-info">Date:</span>
-                <span class="blog-view-info-fill">09.10.2022</span>
+                <span class="blog-view-info-fill">
+                    <?php
+                    $formatted_timestamp = date('d.m.Y H:i', strtotime($blog->getTimestamp()));
+                    echo $formatted_timestamp;
+                    ?>
+                </span>
             </div>
         </div>
         <div class="blog-view-main-text">
             <p class="long-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque excepturi quibusdam voluptatibus. Ad
-                alias, atque illum magnam non nostrum nulla repellendus. Delectus nulla officia officiis provident
-                reiciendis tempora tempore, veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-                excepturi quibusdam voluptatibus. Ad alias, atque illum magnam non nostrum nulla repellendus. Delectus
-                nulla officia officiis provident reiciendis tempora tempore, veniam. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit. Cumque excepturi quibusdam voluptatibus. Ad alias, atque illum magnam non
-                nostrum nulla repellendus. Delectus nulla officia officiis provident reiciendis tempora tempore, veniam.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque excepturi quibusdam voluptatibus. Ad
-                alias, atque illum magnam non nostrum nulla repellendus. Delectus nulla officia officiis provident
-                reiciendis tempora tempore, veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-                excepturi quibusdam voluptatibus. Ad alias, atque illum magnam non nostrum nulla repellendus. Delectus
-                nulla officia officiis provident reiciendis tempora tempore, veniam.
+                <?php
+                echo $blog->getText();
+                ?>
             </p>
         </div>
         <div class="comments-wrap">

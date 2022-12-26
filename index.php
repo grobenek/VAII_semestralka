@@ -6,10 +6,17 @@ include_once "./config/dir_global.php";
 ?>
 
 <div class="blog-wrapper">
-    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
+
+    <?php
+    $blogId = 8;
+    $query = http_build_query(array('blogId' => $blogId));
+    ?>
+
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
-                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/Sample-Picture.jpg");'>
+            <a href="<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php">
+                <div class="img"
+                     style='background-image: url("<?php echo $GLOBALS['dir'] ?>/res/images/Sample-Picture.jpg");'>
                 </div>
             </a>
         </div>
@@ -24,10 +31,12 @@ include_once "./config/dir_global.php";
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
+    <div class="blog-area"
+         onclick="location.href='<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php?<?php echo $query; ?>">
         <div class="blog-main-picture">
-            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
-                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/logo.png");'>
+            <!--            TODO ID BLOGU JE ZATIAL STATICKE - POTOM CITAM Z DATABAZY-->
+            <a href="<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php?<?php echo $query; ?>">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir'] ?>/res/images/logo.png");'>
                 </div>
             </a>
         </div>
@@ -41,10 +50,11 @@ include_once "./config/dir_global.php";
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
-                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/sample-5.jpg");'>
+            <a href="<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php">
+                <div class="img"
+                     style='background-image: url("<?php echo $GLOBALS['dir'] ?>/res/images/sample-5.jpg");'>
                 </div>
             </a>
         </div>
@@ -57,10 +67,11 @@ include_once "./config/dir_global.php";
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
-                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/sample-3.jpg");'>
+            <a href="<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php">
+                <div class="img"
+                     style='background-image: url("<?php echo $GLOBALS['dir'] ?>/res/images/sample-3.jpg");'>
                 </div>
             </a>
         </div>
@@ -73,10 +84,10 @@ include_once "./config/dir_global.php";
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
-                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/logo.png");'>
+            <a href="<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php">
+                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir'] ?>/res/images/logo.png");'>
                 </div>
             </a>
         </div>
@@ -90,10 +101,11 @@ include_once "./config/dir_global.php";
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
-                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/Sample-Picture.jpg");'>
+            <a href="<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php">
+                <div class="img"
+                     style='background-image: url("<?php echo $GLOBALS['dir'] ?>/res/images/Sample-Picture.jpg");'>
                 </div>
             </a>
         </div>
@@ -106,10 +118,11 @@ include_once "./config/dir_global.php";
         </div>
     </div>
 
-    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir']?>/blog/blog-view.php'">
+    <div class="blog-area" onclick="location.href='<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php'">
         <div class="blog-main-picture">
-            <a href="<?php echo $GLOBALS['dir']?>/blog/blog-view.php">
-                <div class="img" style='background-image: url("<?php echo $GLOBALS['dir']?>/res/images/sample-3.jpg");'>
+            <a href="<?php echo $GLOBALS['dir'] ?>/blog/blog-view.php">
+                <div class="img"
+                     style='background-image: url("<?php echo $GLOBALS['dir'] ?>/res/images/sample-3.jpg");'>
                 </div>
             </a>
         </div>
