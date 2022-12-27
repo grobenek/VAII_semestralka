@@ -2,18 +2,18 @@
 
 use model\Comment;
 use model\Blog;
+use model\Picture;
 
 require_once('../model/Comment.php');
 require_once('../model/User.php');
 require_once('../model/Blog.php');
+require_once('../model/Picture.php');
 
 /**
  * @var Comment $comments
  * @var Comment $comment
  *
  */
-
-$comments = Comment::getAllComments();
 
 if (isset($_GET['blogId'])) {
     $blogId = $_GET['blogId'];
@@ -25,6 +25,10 @@ if (isset($_GET['blogId'])) {
 
 $blog = Blog::getBlogById($blogId); //TODO pri nacitani blogu poslat jeho id cez URL cez post (asi) a na zaklade neho nacitat vsetko mozne z databazy
 $author = User::getUserById($blog->getAuthorId());
+$picture = Picture::getPictureById($blog->getPictureId());
+$comments = Comment::getAllCommentsOfBlogById($blog->getBlogId());
+
+//TODO SPRAVIT WYSIWYG EDITOR PRI VYTVARANI BLOGU
 
 require "../components/head.php";
 require "../components/header.php";
@@ -34,7 +38,9 @@ require "../components/header.php";
     <div class="blog-main-left">
         <div class="blog-header">
             <div class="blog-main-image">
-                <img src="<?php echo $GLOBALS['dir'] ?>/res/images/Sample-Picture.jpg" alt="blog-picture">
+                <?php
+                echo '<img src="data:image/jpg;base64,' . $picture->getData() . '" />';
+                ?>
             </div>
 
             <div class="blog-main-h1">
@@ -69,7 +75,7 @@ require "../components/header.php";
             if (isset($_COOKIE['user'])) { ?>
                 <form action="<?php echo $GLOBALS['dir'] ?>/model/create.php" method="post">
                     <!--                TODO BLOG ID ZMENIT PODLA ID Z DATABAZY-->
-                    <input type="hidden" value="1" name="blogId">
+                    <input type="hidden" value="<?php echo $blog->getBlogId() ?>" name="blogId">
                     <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="authorId">
                     <!--                TODO DAT STYLE-->
                     <textarea name="text" required maxlength="65535" style="resize: none"
@@ -111,7 +117,7 @@ require "../components/header.php";
                                 edit
                             </button>
                             <button type="button" class="comment-button delete"
-                                    onclick='confirmDeleteComment("<?php echo $comment->getCommentId() ?>")'>delete
+                                    onclick='confirmDeleteComment("<?php echo $comment->getCommentId() ?>", <?php echo $blog->getBlogId() ?>)'>delete
                             </button>
                         </div>
                     <?php } ?>
@@ -161,7 +167,7 @@ require "../components/header.php";
             '</form>';
     }
 
-    function confirmDeleteComment(commentId) {
+    function confirmDeleteComment(commentId, blogId) {
         let confirmAction = confirm("Are you sure you want to delete this comment?");
         if (confirmAction) {
             let commentWrap = document.querySelector("div#containerCommentText-" + commentId);
@@ -169,6 +175,7 @@ require "../components/header.php";
             commentWrap.innerHTML = '' +
                 '<form id=toSubmit action="<?php echo $GLOBALS['dir']?>/model/delete.php" method="post"> ' +
                 '<input name="commentId" type="hidden" value="' + commentId + '">' +
+                '<input name="blogId" type="hidden" value="' + blogId + '">' +
                 '</form>';
 
             document.querySelector("form#toSubmit").submit();

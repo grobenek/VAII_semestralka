@@ -176,6 +176,48 @@ class Comment
         return $commentsToReturn;
     }
 
+    static function getAllCommentsOfBlogById($id): array
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/comment/blog/'.$id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+        ));
+
+        $comments = curl_exec($curl);
+
+        curl_close($curl);
+
+        if (!$comments) {
+            http_response_code(404);
+            include('../error_page/my_404.php');
+            die();
+        }
+
+        $decodedComments = json_decode($comments, true);
+
+        if ($decodedComments === null) {
+            return [];
+        }
+
+        $commentsToReturn = [];
+
+        foreach ($decodedComments as $comment) {
+            $commentToAdd = new Comment();
+            $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"], $comment["isEdited"]);
+            $commentsToReturn[] = $commentToAdd;
+        }
+
+        return $commentsToReturn;
+    }
+
     /**
      * @return bool true if comment was created, else false
      */

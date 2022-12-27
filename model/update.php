@@ -46,7 +46,8 @@ if (!empty($authorId) && !empty($blogId) && !empty($text) && !empty($commentId))
 
     curl_close($curl);
 
-    header('Location:' . $GLOBALS['dir'] . '/blog/blog-view.php');
+    $query = http_build_query(array('blogId' => $blogId));
+    header('Location:' . $GLOBALS['dir'] . '/blog/blog-view.php?'.$query);
 } else {
     http_response_code(404);
     include('../error_page/my_404.php');

@@ -9,18 +9,38 @@ class Blog
     private $authorId;
     private $text;
     private $timestamp;
+    private $pictureId;
 
     public function __construct()
     {
     }
 
-    public function setAtributes($blogId, $authorId, $text, $timestamp)
+    public function setAtributes($blogId, $authorId, $text, $timestamp, $pictureId)
     {
         $this->blogId = $blogId;
         $this->authorId = $authorId;
         $this->text = $text;
         $this->timestamp = $timestamp;
+        $this->pictureId = $pictureId;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPictureId()
+    {
+        return $this->pictureId;
+    }
+
+    /**
+     * @param mixed $pictureId
+     */
+    public function setPictureId($pictureId): void
+    {
+        $this->pictureId = $pictureId;
+    }
+
+
 
     /**
      * @return mixed
@@ -86,7 +106,10 @@ class Blog
         $this->timestamp = $timestamp;
     }
 
-    static function getAllBlogs()
+    /**
+     * @return array
+     */
+    static function getAllBlogs(): array
     {
         $curl = curl_init();
 
@@ -120,8 +143,8 @@ class Blog
 
         foreach ($decodedBlogs as $blog) {
             $blogToAdd = new Blog();
-            $blogToAdd->setAtributes($blog["blogId"], $blog["authorId"], $blog["text"], $blog["timestamp"]);
-            $blogsToReturn = $blogToAdd;
+            $blogToAdd->setAtributes($blog["blogId"], $blog["authorId"], $blog["text"], $blog["timestamp"], $blog["pictureId"]);
+            $blogsToReturn[] = $blogToAdd;
         }
 
         return $blogsToReturn;
@@ -160,7 +183,7 @@ class Blog
         $decodedBlog = json_decode($blog, true);
 
         $blogToReturn = new Blog();
-        $blogToReturn->setAtributes($decodedBlog['blogId'], $decodedBlog['authorId'], $decodedBlog['text'], $decodedBlog['timestamp']);
+        $blogToReturn->setAtributes($decodedBlog['blogId'], $decodedBlog['authorId'], $decodedBlog['text'], $decodedBlog['timestamp'], $decodedBlog['pictureId']);
         return $blogToReturn;
     }
 
