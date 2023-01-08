@@ -5,18 +5,58 @@ class User
     private $userId;
     private $login;
     private $isAdmin;
+    private $aboutUser;
+    private $email;
 
 
     public function __construct()
     {
     }
 
-    public function setAttributes($userId, $login, $isAdmin)
+    public function setAttributes($userId, $login, $isAdmin, $aboutUser, $email)
     {
         $this->userId = $userId;
         $this->login = $login;
         $this->isAdmin = $isAdmin;
+        $this->aboutUser = $aboutUser;
+        $this->email = $email;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
+    {
+        $this->email = $email;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getAboutUser()
+    {
+        return $this->aboutUser;
+    }
+
+    /**
+     * @param mixed $aboutUser
+     */
+    public function setAboutUser($aboutUser): void
+    {
+        $this->aboutUser = $aboutUser;
+    }
+
+
 
 
     /**
@@ -121,7 +161,7 @@ class User
         $decodedUsers = json_decode($response, true);
 
         $userToReturn = new User();
-        $userToReturn->setAttributes($decodedUsers["userId"], $decodedUsers["login"], $decodedUsers["isAdmin"]);
+        $userToReturn->setAttributes($decodedUsers["userId"], $decodedUsers["login"], $decodedUsers["isAdmin"], $decodedUsers["aboutUser"], $decodedUsers["email"]);
         return $userToReturn;
     }
 }

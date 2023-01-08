@@ -12,7 +12,8 @@ class Picture
     {
     }
 
-    public function setAtributes($pictureId, $data, $fileName) {
+    public function setAtributes($pictureId, $data, $fileName)
+    {
         $this->pictureId = $pictureId;
         $this->data = $data;
         $this->fileName = $fileName;
@@ -77,7 +78,7 @@ class Picture
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://localhost:8080/api/picture/'.$id,
+            CURLOPT_URL => 'http://localhost:8080/api/picture/' . $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -109,5 +110,37 @@ class Picture
         return $pictureToReturn;
     }
 
+    static function createPicture($data, $fileName)
+    {
 
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/picture',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => '{
+    "data": "' . $data . '",
+    "fileName": "' . $fileName . '"
+}',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        $responseDecoded = json_decode($response, true);
+
+        curl_close($curl);
+
+        return $responseDecoded['pictureId'];
+    }
 }

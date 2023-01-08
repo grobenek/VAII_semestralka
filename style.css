@@ -36,7 +36,7 @@ header .header-right button {
   transition: all 0.15s ease-in;
   transform: scale(1);
 }
-header .header-right button:nth-child(2) {
+header .header-right button:nth-child(1), header .header-right button:nth-child(2) {
   background-color: #76F5AD;
 }
 header .header-right button:hover {
@@ -290,17 +290,12 @@ body .blog-view-wrapper .sidebar {
   position: relative;
   padding: 20px;
   flex-grow: 1;
-}
-body .blog-view-wrapper .sidebar .sidebar-autor-section {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-body .blog-view-wrapper .sidebar .sidebar-autor-section .blogs-from-author {
+body .blog-view-wrapper .sidebar .categories {
   position: absolute;
   bottom: 0;
   border-top: #7ae8e8 solid;
@@ -310,6 +305,22 @@ body .blog-view-wrapper .sidebar .sidebar-autor-section .blogs-from-author {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+}
+body .blog-view-wrapper .sidebar .categories .category {
+  margin: 1px;
+}
+body .blog-view-wrapper .sidebar .categories .categories-title {
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+body .blog-view-wrapper .sidebar .sidebar-autor-section {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 body .blog-view-wrapper .sidebar .sidebar-autor-section .about-author-container {
   border-bottom: #7ae8e8 solid;
@@ -527,6 +538,18 @@ input:hover {
     width: 90%;
   }
 }
+.no-blogs {
+  border-bottom: #7ae8e8 solid;
+}
+
+.editor-wrapper {
+  width: 80%;
+}
+
+.fr-basic {
+  border: 1px solid #7ae8e8;
+}
+
 * {
   margin: 0;
   padding: 0;

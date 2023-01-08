@@ -34,6 +34,7 @@ if (!empty($email) && !empty($password)) {
 
     if (password_verify($password, $userInformation['password'])) {
         setcookie('user', $userInformation['userId'], time() + 60 * 60 * 24, "/");
+        setcookie('userAdmin', $userInformation['isAdmin'], time() + 60 * 60 * 24, "/");
     } else {
         header('Location:' . $GLOBALS['dir'] . '/login/login.php?e=Invalid login!');
         return;

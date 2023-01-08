@@ -39,6 +39,23 @@ class Comment
     }
 
     /**
+     * @param mixed $decodedComments
+     * @return array
+     */
+    private static function extractComments(mixed $decodedComments): array
+    {
+        $commentsToReturn = [];
+
+        foreach ($decodedComments as $comment) {
+            $commentToAdd = new Comment();
+            $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"], $comment["isEdited"]);
+            $commentsToReturn[] = $commentToAdd;
+        }
+
+        return $commentsToReturn;
+    }
+
+    /**
      * @return mixed
      */
     public function getIsEdited()
@@ -165,15 +182,7 @@ class Comment
 
         $decodedComments = json_decode($comments, true);
 
-        $commentsToReturn = [];
-
-        foreach ($decodedComments as $comment) {
-            $commentToAdd = new Comment();
-            $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"], $comment["isEdited"]);
-            $commentsToReturn[] = $commentToAdd;
-        }
-
-        return $commentsToReturn;
+        return self::extractComments($decodedComments);
     }
 
     static function getAllCommentsOfBlogById($id): array
@@ -207,15 +216,7 @@ class Comment
             return [];
         }
 
-        $commentsToReturn = [];
-
-        foreach ($decodedComments as $comment) {
-            $commentToAdd = new Comment();
-            $commentToAdd->setAtributes($comment["commentId"], $comment["authorId"], $comment["timestamp"], $comment["blogId"], $comment["text"], $comment["isEdited"]);
-            $commentsToReturn[] = $commentToAdd;
-        }
-
-        return $commentsToReturn;
+        return self::extractComments($decodedComments);
     }
 
     /**
