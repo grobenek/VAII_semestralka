@@ -28,6 +28,11 @@ require "../components/header.php";
 </div>
 
 <form id="submit-form" method="POST" action="<?php echo $GLOBALS['dir'] ?>/model/create_blog.php">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required>
+  <label for="categories">Categories:</label>
+  <input type="text" id="categories" name="categories" required>
+  <label for="image">Image:</label>
   <input type="file" id="image" name="image">
   <textarea id="imageData" name="imageData" style="display: none;"></textarea>
   <textarea id="fileName" name="fileName" style="display: none;"></textarea>

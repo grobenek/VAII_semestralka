@@ -94,6 +94,10 @@ class Category
 
         $decodedCategories = json_decode($categories, true);
 
+        if ($decodedCategories == null) {
+            return [];
+        }
+
         $categoriesToReturn = [];
 
         foreach ($decodedCategories as $category) {

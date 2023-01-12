@@ -1,3 +1,17 @@
+/* Error: Undefined variable.
+ *   ,
+ * 3 |   min-height: calc(100vh - ($header-margin-bottom * 2) - $header-height);
+ *   |                             ^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   profile.scss 3:29  root stylesheet */
 
-
-/*# sourceMappingURL=profile.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   \2577 \a 3 \2502    min-height: calc(100vh - ($header-margin-bottom * 2) - $header-height);\a   \2502                              ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   profile.scss 3:29  root stylesheet";
+}

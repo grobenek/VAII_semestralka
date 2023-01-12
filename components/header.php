@@ -10,16 +10,16 @@
           <a href="">Home</a>
         </li>
         <li>
-          <a href="">Home</a>
+          <a href="">About us</a>
         </li>
         <li>
-          <a href="">About us</a>
+          <a href="<?php echo $GLOBALS['dir'] ?>/profile/profile.php">My profile</a>
         </li>
           <?php if (isset($_COOKIE['userAdmin'])) {
               if ($_COOKIE['userAdmin']) {
                   ?>
                 <li>
-                  <a href="">Manage users</a>
+                  <a href="<?php echo $GLOBALS['dir']?>/admin/manage-users.php">Manage users</a>
                 </li>
               <?php }
           } ?>

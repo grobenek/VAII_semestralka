@@ -16,8 +16,16 @@ require "../components/head.php";
 require "../components/header.php";
 ?>
 
-<div class="blog-view-wrapper">
-  <span>Username: <?php echo $user->getLogin()?> </span>
-  <span>Email: <?php echo $user->getEmail()?> </span>
-  <span>About user: <?php echo $user->getAboutUser() ?> </span>
+<div class="profile-wrapper">
+  <div class="user-info-wrapper">
+    <span>Username: <?php echo $user->getLogin()?> </span>
+    <span>Email: <?php echo $user->getEmail()?> </span>
+    <span>About user: <?php echo $user->getAboutUser() ?> </span>
+  </div>
+  <div>
+    <button class="reset-password-button" onclick="location.href='./change-password.php'">Change password</button>
+  </div>
 </div>
+
+</body>
+</html>

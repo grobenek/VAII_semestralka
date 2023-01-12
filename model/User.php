@@ -22,6 +22,64 @@ class User
         $this->email = $email;
     }
 
+    public static function getAllUsers(): User|array
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/user',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        $users = json_decode($response, true);
+
+        $usersToReturn = [];
+
+        foreach ($users as $user) {
+            $userToReturn = new User();
+            $userToReturn->setAttributes($user['userId'], $user['login'], $user['isAdmin'],  $user['aboutUser'], $user['email']);
+            $usersToReturn[] = $userToReturn;
+        }
+
+        return $usersToReturn;
+    }
+
+    public static function removeUserById(mixed $userId)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/user/'.$userId,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'DELETE',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+    }
+
     /**
      * @return mixed
      */
@@ -55,9 +113,6 @@ class User
     {
         $this->aboutUser = $aboutUser;
     }
-
-
-
 
     /**
      * @return mixed
