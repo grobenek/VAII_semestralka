@@ -247,7 +247,7 @@ class Blog
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://localhost:8080/api/blog/author/id/'.$authorId.'/'.$pictureId,
+            CURLOPT_URL => 'http://localhost:8080/api/blog/author/id/' . $authorId . '/' . $pictureId,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -255,12 +255,12 @@ class Blog
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{
-    "authorId": '.$authorId.',
-    "pictureId": '.$pictureId.',
-    "title": "'.$title.'",
-    "text": "'.$text.'",
-    "timestamp": "'.$timestamp.'"
+            CURLOPT_POSTFIELDS => '{
+    "authorId": ' . $authorId . ',
+    "pictureId": ' . $pictureId . ',
+    "title": "' . $title . '",
+    "text": "' . $text . '",
+    "timestamp": "' . $timestamp . '"
 }',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json'
@@ -274,6 +274,29 @@ class Blog
         curl_close($curl);
 
         return is_numeric($responseDecoded['blogId']);
+    }
+
+    static function deleteBlog($blogId)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/blog/' . $blogId,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'DELETE',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
     }
 
 }

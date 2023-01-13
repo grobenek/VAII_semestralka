@@ -25,8 +25,7 @@ if (isset($_GET['blogId'])) {
     die();
 }
 //TODO PRIDAT STRANKU NA UPRAVU PROFILU
-//TODO PRIDAT ADMIN TLACIDLO A STRANKU PRE ZOBRAZENIE VSETKYCH UCTOV
-//TODO PRIDAT AJAX PRE KOMENTARE ALEBO BLOGY A AJAX EDITACIA TEXTU BLOGU
+//TODO PRIDAT AJAX PRE KOMENTARE ALEBO BLOGY
 //TODO AK BUDE CAS, HLADAT BLOGY PODLA KATEGORII
 
 $blog = Blog::getBlogById($blogId);
@@ -68,6 +67,10 @@ require "../components/header.php";
                     echo $formatted_timestamp;
                     ?>
                 </span>
+          <?php
+          if (isset($_COOKIE['user']) && $blog->getAuthorId() == $_COOKIE['user']) { ?>
+            <button onclick="deleteBlog(<?php echo $blogId; ?>)">Delete</button>
+          <?php } ?>
       </div>
     </div>
     <div class="blog-view-main-text">
@@ -195,6 +198,17 @@ require "../components/header.php";
     } else {
       alert("Action canceled");
     }
+  }
+
+  function deleteBlog(blogId) {
+    $.ajax({
+      type: "POST",
+      url: "<?php echo $GLOBALS['dir']; ?>/model/delete_blog.php",
+      data: {blogId: blogId},
+      success: function () {
+        location.replace("<?php echo $GLOBALS['dir']; ?>/index.php");
+      }
+    });
   }
 </script>
 </body>
