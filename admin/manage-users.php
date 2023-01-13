@@ -15,7 +15,7 @@ require "../components/head.php";
 require "../components/header.php";
 ?>
 
-<!--TODO NASTYLOVAT - FUNKCIE NA SPRAVENIE ADMINOM A ZMAZANIA-->
+<!--TODO NASTYLOVAT -->
 
 <div class="blog-view-wrapper">
 
@@ -28,7 +28,7 @@ require "../components/header.php";
         <span><?php echo $user->getLogin(); ?></span>
         <span><?php echo $user->getEmail(); ?></span>
         <button onclick="removeUser(<?php echo $user->getUserId(); ?>)">Remove</button>
-        <button>Make admin</button>
+        <button onclick="makeAdmin(<?php echo $user->getUserId(); ?>)">Make admin</button>
       </div>
     <?php } ?>
 
@@ -58,7 +58,7 @@ require "../components/header.php";
         <span>${user.login}</span>
         <span>${user.email}</span>
         <button onclick="removeUser(${user.userId})">Remove</button>
-        <button>Make admin</button>
+        <button onclick="makeAdmin(${user.userId})">Make admin</button>
         </div>`;
               }
             }
@@ -67,6 +67,37 @@ require "../components/header.php";
         });
       }
     });
+  }
+
+  function makeAdmin(userId) {
+    $.ajax({
+      type: "POST",
+      url: "<?php echo $GLOBALS['dir'] ?>/model/user_make_admin.php",
+      data: {userId: userId},
+      success: function () {
+        $.ajax({
+          type: "GET",
+          url: "<?php echo $GLOBALS['dir'] ?>/model/user_list.php",
+          success: function (response) {
+            var users = JSON.parse(response)
+            console.log(users)
+            var html = "";
+            for (var userId in users) {
+              var user = users[userId];
+              if (user["isAdmin"] != 1) {
+                html += `<div class="profile-view-wrapper">
+        <span>${user.login}</span>
+        <span>${user.email}</span>
+        <button onclick="removeUser(${user.userId})">Remove</button>
+        <button onclick="makeAdmin(${user.userId})">Make admin</button>
+        </div>`;
+              }
+            }
+            $('.blog-view-wrapper').html(html);
+          }
+        });
+      }
+    })
   }
 </script>
 
