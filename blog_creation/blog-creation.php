@@ -93,7 +93,9 @@ require "../components/header.php";
       alert("Upload image!");
     } else {
       console.log("SUBMITTED");
-      document.getElementById('html-content').value = editor.html.get();
+      var htmlString = editor.html.get();
+      htmlString = htmlString.replace(/"/g, "'");
+      document.getElementById('html-content').value = htmlString;
       const htmlData = document.getElementById('html-content').value;
 
       if (htmlData === '') {

@@ -273,6 +273,10 @@ class Blog
 
         curl_close($curl);
 
+        if (!isset($responseDecoded['blogId'])) {
+            return $response;
+        }
+
         return is_numeric($responseDecoded['blogId']);
     }
 
