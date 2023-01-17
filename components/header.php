@@ -10,19 +10,17 @@
           <a href="">Home</a>
         </li>
         <li>
-          <a href="">About us</a>
-        </li>
-        <li>
           <a href="<?php echo $GLOBALS['dir'] ?>/profile/profile.php">My profile</a>
         </li>
           <?php if (isset($_COOKIE['userAdmin'])) {
               if ($_COOKIE['userAdmin']) {
                   ?>
-                <li onclick="location.href='<?php echo $GLOBALS['dir']?>/admin/manage-users.php'">
-                  <a href="<?php echo $GLOBALS['dir']?>/admin/manage-users.php">Manage users</a>
+                <li onclick="location.href='<?php echo $GLOBALS['dir'] ?>/admin/manage-users.php'">
+                  <a href="<?php echo $GLOBALS['dir'] ?>/admin/manage-users.php">Manage users</a>
                 </li>
-                <li onclick="location.href='<?php echo $GLOBALS['dir']?>/admin/manage-categories.php'">
-                  <a href="<?php echo $GLOBALS['dir']?>/admin/manage-users.php">Manage categories</a>
+                <li onclick="location.href='<?php echo $GLOBALS['dir'] ?>/admin/manage-categories.php'">
+                  <a href="<?php echo $GLOBALS['dir'] ?>/admin/manage-users.php">Manage
+                    categories</a>
                 </li>
               <?php }
           } ?>
