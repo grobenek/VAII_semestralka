@@ -1,0 +1,17 @@
+div.manage-categories-wrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: 15px;
+
+  div.category-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    column-gap: 15px;
+  }
+}
+

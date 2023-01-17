@@ -275,14 +275,11 @@ body {
 
       .sidebar {
         width: 100%;
-        height: auto;
-        border-top: $dark-secondary solid;
-        border-left: none;
+        //height: 50vh;
 
-        .sidebar-autor-section {
-          .about-author-container {
-            position: relative;
-          }
+        div.categories {
+          position: relative;
+          margin-top: 50px;
         }
       }
     }

@@ -17,19 +17,25 @@ require "../components/header.php";
 
 <div class="blog-view-wrapper">
 
+    <div class="profiles-wrapper">
     <?php foreach ($users as $user) {
         if ($user->getIsAdmin() == 1) {
             continue;
         }
         ?>
       <div class="profile-view-wrapper">
-        <span><?php echo $user->getLogin(); ?></span>
-        <span><?php echo $user->getEmail(); ?></span>
-        <button onclick="removeUser(<?php echo $user->getUserId(); ?>)">Remove</button>
-        <button onclick="makeAdmin(<?php echo $user->getUserId(); ?>)">Make admin</button>
+        <div>
+          <span><?php echo $user->getLogin(); ?></span>
+          <span><?php echo $user->getEmail(); ?></span>
+        </div>
+        <div>
+          <button onclick="removeUser(<?php echo $user->getUserId(); ?>)">Remove</button>
+          <button onclick="makeAdmin(<?php echo $user->getUserId(); ?>)">Make admin</button>
+        </div>
       </div>
     <?php } ?>
 
+</div>
 </div>
 
 </body>

@@ -12,8 +12,9 @@ require "../components/header.php";
 
 <div class="blog-view-wrapper">
 
+    <div class="manage-categories-wrapper">
     <?php foreach ($categories as $category) { ?>
-      <div>
+      <div class="category-wrapper">
         <span><?php echo $category->getCategoryName(); ?></span>
         <button
             onclick="removeCategory(<?php echo $category->getCategoryId() ?>)">
@@ -22,6 +23,7 @@ require "../components/header.php";
       </div>
     <?php } ?>
 
+</div>
 </div>
 
 <script>

@@ -222,7 +222,7 @@ require "../components/header.php";
           document.getElementById("comments-wrap-wrapper").innerHTML = response;
         }
       });
-    }, 5000);
+    }, 30000);
   });
 </script>
 </body>
