@@ -1,10 +1,12 @@
 <?php
 
 use model\Blog;
-require_once('./Blog.php');
-
+use model\Category;
 use model\Picture;
+
+require_once('./Blog.php');
 require_once('./Picture.php');
+require_once('./Category.php');
 
 if (isset($_POST['imageData']) && isset($_POST['fileName']) && isset($_POST['html-content']) && isset($_COOKIE['user']) && isset($_POST['title'])) {
     $imageData = $_POST['imageData'];
@@ -21,11 +23,27 @@ if (isset($_POST['imageData']) && isset($_POST['fileName']) && isset($_POST['htm
 $pictureId = Picture::createPicture($imageData, $fileName);
 $timestamp = Date('c');
 
+$categoryNames = Category::getAllCategoryNames();
+
+$categoryNamesToCreate = [];
+
+foreach ($categoryNames as $categoryName) {
+    if (isset($_POST[$categoryName->getCategoryName()])) {
+        $categoryNamesToCreate[] = $categoryName->getCategoryId();
+        echo $categoryName->getCategoryId();
+    }
+}
+
 if ($pictureId) {
 
     $createdBlog = Blog::createBlog($userId, $pictureId, $title, $htmlContent, $timestamp);
 
     if ($createdBlog == true) {
+
+        for ($i = 0; $i < count($categoryNamesToCreate); $i++) {
+            Category::createCategory($createdBlog, $categoryNamesToCreate[$i]);
+        }
+
         header('Location:' . $GLOBALS['dir'] . '/index.php');
     } else {
         http_response_code(404);

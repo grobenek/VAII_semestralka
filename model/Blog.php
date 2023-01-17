@@ -277,7 +277,7 @@ class Blog
             return $response;
         }
 
-        return is_numeric($responseDecoded['blogId']);
+        return $responseDecoded['blogId'];
     }
 
     static function deleteBlog($blogId)
