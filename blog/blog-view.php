@@ -80,6 +80,7 @@ require "../components/header.php";
           ?>
       </p>
     </div>
+    <div id="comments-wrap-wrapper">
     <div class="comments-wrap">
       <div>
           <?php
@@ -140,6 +141,7 @@ require "../components/header.php";
             <?php
         }
         ?>
+    </div>
     </div>
   </div>
   <div class="sidebar">
@@ -217,10 +219,11 @@ require "../components/header.php";
     setInterval(function () {
       $.ajax({
         type: "GET",
-        url: "../model/load_comments.php",
+        url: "<?php echo $GLOBALS['dir']; ?>/model/load_comments.php",
         data: {blogId: <?php echo $blogId; ?>},
         success: function (response) {
-          document.getElementById("comments-wrap").html(response);
+          document.getElementById("comments-wrap-wrapper").innerHTML = response;
+          // console.log(response);
         }
       });
     }, 5000);
