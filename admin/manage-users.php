@@ -39,12 +39,12 @@ require "../components/header.php";
   function removeUser(userId) {
     $.ajax({
       type: "POST",
-      url: "<?php echo $GLOBALS['dir'] ?>/model/user_remove.php",
+      url: "<?php echo $GLOBALS['dir'] ?>/controller/user_remove.php",
       data: {userId: userId},
       success: function () {
         $.ajax({
           type: "GET",
-          url: "<?php echo $GLOBALS['dir'] ?>/model/user_list.php",
+          url: "<?php echo $GLOBALS['dir'] ?>/controller/user_list.php",
           success: function (response) {
             var users = JSON.parse(response)
             console.log(users)
@@ -70,12 +70,12 @@ require "../components/header.php";
   function makeAdmin(userId) {
     $.ajax({
       type: "POST",
-      url: "<?php echo $GLOBALS['dir'] ?>/model/user_make_admin.php",
+      url: "<?php echo $GLOBALS['dir'] ?>/controller/user_make_admin.php",
       data: {userId: userId},
       success: function () {
         $.ajax({
           type: "GET",
-          url: "<?php echo $GLOBALS['dir'] ?>/model/user_list.php",
+          url: "<?php echo $GLOBALS['dir'] ?>/controller/user_list.php",
           success: function (response) {
             var users = JSON.parse(response)
             console.log(users)

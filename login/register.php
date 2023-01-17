@@ -2,7 +2,7 @@
 
 require "../components/head.php";
 ?>
-<form action="./register_user.php" method="post" class="login-wrapper">
+<form action="../controller/register_user.php" method="post" class="login-wrapper">
     <div class="login-logo">
         <h1>Welcome!</h1>
         <img src="<?php echo $GLOBALS['dir'] ?>/res/images/logo.png" alt="logo">

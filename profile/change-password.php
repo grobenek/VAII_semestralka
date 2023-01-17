@@ -15,8 +15,7 @@ $user = User::getUserById($userId);
 require "../components/head.php";
 require "../components/header.php";
 ?>
-<!--//TODO FUNKCIA V API NA ZMENU HESLA - SPRAVIT AJ V PHP-->
-<form action="./change-password-send.php" method="post" class="login-wrapper">
+<form action="../controller/change-password-send.php" method="post" class="login-wrapper">
   <div class="input-wrapper">
     <div class="password-wrapper">
       <input required type="password" minlength="4" name="new-password" placeholder="New password">

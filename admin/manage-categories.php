@@ -28,7 +28,7 @@ require "../components/header.php";
   function removeCategory(categoryId) {
     $.ajax({
       type: "POST",
-      url: "<?php echo $GLOBALS['dir']; ?>/model/category_remove.php",
+      url: "<?php echo $GLOBALS['dir']; ?>/controller/category_remove.php",
       data: { categoryId: categoryId },
       success: function() {
         location.reload();

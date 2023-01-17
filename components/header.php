@@ -19,7 +19,7 @@
                   <a href="<?php echo $GLOBALS['dir'] ?>/admin/manage-users.php">Manage users</a>
                 </li>
                 <li onclick="location.href='<?php echo $GLOBALS['dir'] ?>/admin/manage-categories.php'">
-                  <a href="<?php echo $GLOBALS['dir'] ?>/admin/manage-users.php">Manage
+                  <a href="<?php echo $GLOBALS['dir'] ?>/admin/manage-categories.php">Manage
                     categories</a>
                 </li>
               <?php }
@@ -50,7 +50,7 @@
             onclick='window.location.href="<?php echo $GLOBALS['dir'] ?>/my_blogs/my-blogs.php?<?php echo $query; ?>"'>
           My blogs
         </button>
-        <button onclick="window.location.href= '<?php echo $GLOBALS['dir'] ?>/login/sign_out.php';">
+        <button onclick="window.location.href= '<?php echo $GLOBALS['dir'] ?>/controller/sign_out.php';">
           Sign out
         </button>
       <?php } ?>
