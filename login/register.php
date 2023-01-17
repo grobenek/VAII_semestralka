@@ -10,8 +10,6 @@ require "../components/head.php";
 
     <div class="input-wrapper">
         <div class="email-wrapper">
-            <!--            @TODO zmenit ak bude validator ukazovat label chybu
-                                pridat label a dat ho ako visibility hidden-->
             <input required type="email" name="email" id="email" placeholder="Email">
             <input required type="text" name="login" style="margin-top: 5px" placeholder="Username">
         </div>
