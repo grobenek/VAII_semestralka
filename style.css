@@ -641,6 +641,7 @@ form.form-blog-creation div.form-inputs-wrapper {
   align-items: center;
   align-content: center;
   max-width: 30%;
+  min-width: 350px;
   height: fit-content;
   border-radius: 15px;
   padding: 5px;
