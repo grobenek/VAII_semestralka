@@ -17,9 +17,11 @@ form.form-blog-creation {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: 100%;
 
     div.categories-dropdown {
-      width: 150px;
+      width: 100%;
+      flex-wrap: wrap;
 
       div {
         display: flex;
@@ -37,9 +39,51 @@ form.form-blog-creation {
 
   div.form-inputs-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+
+    div {
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  div.form-inputs-wrapper {
+    div {
+      input {
+        width: 100%;
+        height: 40px;
+      }
+    }
+
+    div.categories-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      div.categories-dropdown {
+        width: 100%;
+        flex-wrap: wrap;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          input {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
   }
 }

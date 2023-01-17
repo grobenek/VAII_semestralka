@@ -24,7 +24,7 @@ require "../components/header.php";
         }
         ?>
       <div class="profile-view-wrapper">
-        <div>
+        <div class="profile-view-left">
           <span><?php echo $user->getLogin(); ?></span>
           <span><?php echo $user->getEmail(); ?></span>
         </div>
@@ -37,9 +37,6 @@ require "../components/header.php";
 
 </div>
 </div>
-
-</body>
-</html>
 
 <script>
   function removeUser(userId) {
@@ -104,4 +101,7 @@ require "../components/header.php";
     })
   }
 </script>
+
+</body>
+</html>
 

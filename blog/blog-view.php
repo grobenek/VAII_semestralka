@@ -31,8 +31,6 @@ $picture = Picture::getPictureById($blog->getPictureId());
 $comments = Comment::getAllCommentsOfBlogById($blog->getBlogId());
 $categories = Category::getCategoriesByBlogId($blog->getBlogId());
 
-//TODO SPRAVIT WYSIWYG EDITOR PRI VYTVARANI BLOGU
-
 require "../components/head.php";
 require "../components/header.php";
 ?>
@@ -42,7 +40,7 @@ require "../components/header.php";
     <div class="blog-header">
       <div class="blog-main-image">
           <?php
-          echo '<img src="data:image/jpg;base64,' . $picture->getData() . '" />';
+          echo '<img alt="Blog-image" src="data:image/jpg;base64,' . $picture->getData() . '" />';
           ?>
       </div>
 
@@ -85,7 +83,6 @@ require "../components/header.php";
             <form action="<?php echo $GLOBALS['dir'] ?>/controller/create_comment.php" method="post">
               <input type="hidden" value="<?php echo $blog->getBlogId() ?>" name="blogId">
               <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="authorId">
-              <!--                TODO DAT STYLE-->
               <textarea name="text" required maxlength="65535" style="resize: none"
                         placeholder="Start writing your comment..."></textarea>
               <button type="submit">Post</button>
