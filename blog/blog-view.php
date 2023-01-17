@@ -24,9 +24,6 @@ if (isset($_GET['blogId'])) {
     include('../error_page/my_404.php');
     die();
 }
-//TODO PRIDAT STRANKU NA UPRAVU PROFILU
-//TODO PRIDAT AJAX PRE KOMENTARE ALEBO BLOGY
-//TODO AK BUDE CAS, HLADAT BLOGY PODLA KATEGORII
 
 $blog = Blog::getBlogById($blogId);
 $author = User::getUserById($blog->getAuthorId());
@@ -223,7 +220,6 @@ require "../components/header.php";
         data: {blogId: <?php echo $blogId; ?>},
         success: function (response) {
           document.getElementById("comments-wrap-wrapper").innerHTML = response;
-          // console.log(response);
         }
       });
     }, 5000);

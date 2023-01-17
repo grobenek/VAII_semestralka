@@ -32,22 +32,25 @@ require "../components/header.php";
 </div>
 
 <form class="form-blog-creation" id="submit-form" method="POST" action="<?php echo $GLOBALS['dir'] ?>/model/create_blog.php">
+  <div class="categories-wrapper">
+  <div class="categories-dropdown">
+    <div>
+        <?php foreach ($categories as $category) { ?>
+          <input type="checkbox" id="<?php echo $category->getCategoryName() ?>" name="<?php echo $category->getCategoryName() ?>">
+          <label for="<?php echo $category->getCategoryName() ?>"><?php echo $category->getCategoryName() ?></label>
+        <?php } ?>
+    </div>
+  </div>
+  </div>
+  <div class="form-inputs-wrapper">
   <div>
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" required>
   </div>
-  <div class="categories-dropdown">
-    <div>
-<!--      TODO NAME CATEGORIE DAT AKO JEJ NAZOV-->
-      <?php foreach ($categories as $category) { ?>
-        <input type="checkbox" id="<?php echo $category->getCategoryName() ?>" name="<?php echo $category->getCategoryName() ?>">
-        <label for="<?php echo $category->getCategoryName() ?>"><?php echo $category->getCategoryName() ?></label>
-      <?php } ?>
-    </div>
-  </div>
   <div>
     <label for="image">Image:</label>
     <input type="file" id="image" name="image">
+  </div>
   </div>
   <textarea id="imageData" name="imageData" style="display: none;"></textarea>
   <textarea id="fileName" name="fileName" style="display: none;"></textarea>
@@ -107,7 +110,7 @@ require "../components/header.php";
       alert("Upload image!");
     } else {
       console.log("SUBMITTED");
-      var htmlString = editor.html.get();
+      let htmlString = editor.html.get();
       htmlString = htmlString.replace(/"/g, "'");
       document.getElementById('html-content').value = htmlString;
       const htmlData = document.getElementById('html-content').value;

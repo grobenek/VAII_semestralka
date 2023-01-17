@@ -552,23 +552,35 @@ input:hover {
 
 form.form-blog-creation {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  column-gap: 20px;
 }
-form.form-blog-creation div.categories-dropdown {
+form.form-blog-creation div.categories-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+form.form-blog-creation div.categories-wrapper div.categories-dropdown {
   width: 150px;
 }
-form.form-blog-creation div.categories-dropdown div {
+form.form-blog-creation div.categories-wrapper div.categories-dropdown div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
-form.form-blog-creation div.categories-dropdown div input {
+form.form-blog-creation div.categories-wrapper div.categories-dropdown div input {
   width: 20px;
   height: 20px;
+}
+form.form-blog-creation div.form-inputs-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .profile-wrapper {

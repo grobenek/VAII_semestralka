@@ -15,8 +15,6 @@ require "../components/head.php";
 require "../components/header.php";
 ?>
 
-<!--TODO NASTYLOVAT -->
-
 <div class="blog-view-wrapper">
 
     <?php foreach ($users as $user) {
@@ -37,7 +35,7 @@ require "../components/header.php";
 </body>
 </html>
 
-<script> //TODO spravit este make admin s ajaxom
+<script>
   function removeUser(userId) {
     $.ajax({
       type: "POST",

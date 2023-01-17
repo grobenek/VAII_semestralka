@@ -21,6 +21,9 @@
                 <li onclick="location.href='<?php echo $GLOBALS['dir']?>/admin/manage-users.php'">
                   <a href="<?php echo $GLOBALS['dir']?>/admin/manage-users.php">Manage users</a>
                 </li>
+                <li onclick="location.href='<?php echo $GLOBALS['dir']?>/admin/manage-categories.php'">
+                  <a href="<?php echo $GLOBALS['dir']?>/admin/manage-users.php">Manage categories</a>
+                </li>
               <?php }
           } ?>
       </ul>
