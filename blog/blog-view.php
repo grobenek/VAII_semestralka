@@ -174,7 +174,7 @@ require "../components/header.php";
     let commentWrap = document.querySelector("div#containerCommentText-" + commentId);
 
     commentWrap.innerHTML = '' +
-        '<form action="<?php echo $GLOBALS['dir']?>/model/update.php" method="post"> ' +
+        '<form action="<?php echo $GLOBALS['dir']?>/model/update_comment.php" method="post"> ' +
         '<input name="commentId" type="hidden" value="' + commentId + '">' +
         '<input name="blogId" type="hidden" value="' + blogId + '">' +
         '<input name="authorId" type="hidden" value="' + authorId + '">' +
