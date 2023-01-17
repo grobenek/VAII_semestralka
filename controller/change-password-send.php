@@ -1,5 +1,5 @@
 <?php
-
+include_once $_SERVER["DOCUMENT_ROOT"] . "/semestralka/config/dir_global.php";
 require_once('../model/User.php');
 
 if (isset($_COOKIE['user']) && isset($_POST['new-password'])) {
@@ -13,9 +13,8 @@ if (isset($_COOKIE['user']) && isset($_POST['new-password'])) {
 
 $password = password_hash($password, PASSWORD_BCRYPT);
 
-
 User::changeUserPassword($userId, $password);
 
-header('Location:' . $GLOBALS['dir'] . '/index.php');
+header('Location:' . $GLOBALS['dir'] . '/');
 
 

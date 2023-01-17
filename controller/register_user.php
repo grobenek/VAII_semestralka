@@ -1,6 +1,8 @@
 <?php
 include_once $_SERVER["DOCUMENT_ROOT"] . "/semestralka/config/dir_global.php";
 
+require_once('../model/User.php');
+
 $email = null;
 $password = null;
 $login = null;
@@ -16,38 +18,8 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['login']
 }
 
 if (!empty($email) && !empty($password) && !empty($login) && !empty($aboutUser)) {
-    $curl = curl_init();
 
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://localhost:8080/api/user',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS =>'{
-    "login": "'.$login.'",
-    "isAdmin": false,
-    "password": "'.$password.'",
-    "email": "'.$email.'",
-    "aboutUser": "'.$aboutUser.'"
-}',
-        CURLOPT_HTTPHEADER => array(
-            'Content-Type: application/json'
-        ),
-    ));
-
-    $createdUser = curl_exec($curl);
-
-    curl_close($curl);
-
-    $returnedUser = json_decode($createdUser, true);
-
-    curl_close($curl);
+    $returnedUser = User::registerUser($login, $password, $email, $aboutUser);
 
     $userId = $returnedUser['userId'];
 

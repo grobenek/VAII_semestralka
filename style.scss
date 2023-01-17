@@ -5,6 +5,8 @@
 @import "my_blogs/my-blogs";
 @import "blog_creation/blog-creation";
 @import "profile/profile";
+@import "admin/manage-users";
+@import "admin/manage-categories";
 
 * {
   margin: 0;
@@ -29,6 +31,7 @@
   align-items: center;
   align-content: center;
   max-width: 30%;
+  min-width: 350px;
   height: fit-content;
   border-radius: 15px;
   padding: 5px;

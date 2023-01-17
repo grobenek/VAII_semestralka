@@ -31,7 +31,7 @@ require "../components/header.php";
   <div id="editor"></div>
 </div>
 
-<form class="form-blog-creation" id="submit-form" method="POST" action="<?php echo $GLOBALS['dir'] ?>/model/create_blog.php">
+<form class="form-blog-creation" id="submit-form" method="POST" action="<?php echo $GLOBALS['dir'] ?>/controller/create_blog.php">
   <div class="categories-wrapper">
   <div class="categories-dropdown">
     <div>
@@ -63,7 +63,11 @@ require "../components/header.php";
   const editor = new FroalaEditor('#editor', {
     heightMin: 400,
     heightMax: 500,
-    width: '100%'
+    width: '100%',
+    imageAllowedTypes: [],
+    imageInsertButtons: [],
+    videoInsertButtons: [],
+    fileUpload: false
   });
 
   document.getElementById("submit-button").disabled = true;

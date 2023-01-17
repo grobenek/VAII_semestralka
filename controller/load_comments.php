@@ -20,7 +20,7 @@ echo '<div class="comments-wrap">';
 
 if (isset($_COOKIE['user'])) {
     echo '<div>
-        <form action="'.$GLOBALS['dir'].'/model/create.php" method="post">
+        <form action="'.$GLOBALS['dir'].'/model/create_comment.php" method="post">
           <input type="hidden" value="'.$blogId.'" name="blogId">
           <input type="hidden" value="'.$_COOKIE['user'].'" name="authorId">
           <textarea name="text" required maxlength="65535" style="resize: none"

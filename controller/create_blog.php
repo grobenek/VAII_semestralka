@@ -4,9 +4,9 @@ use model\Blog;
 use model\Category;
 use model\Picture;
 
-require_once('./Blog.php');
-require_once('./Picture.php');
-require_once('./Category.php');
+require_once('../model/Blog.php');
+require_once('../model/Picture.php');
+require_once('../model/Category.php');
 
 if (isset($_POST['imageData']) && isset($_POST['fileName']) && isset($_POST['html-content']) && isset($_COOKIE['user']) && isset($_POST['title'])) {
     $imageData = $_POST['imageData'];

@@ -82,7 +82,7 @@ require "../components/header.php";
       <div>
           <?php
           if (isset($_COOKIE['user'])) { ?>
-            <form action="<?php echo $GLOBALS['dir'] ?>/model/create.php" method="post">
+            <form action="<?php echo $GLOBALS['dir'] ?>/controller/create_comment.php" method="post">
               <input type="hidden" value="<?php echo $blog->getBlogId() ?>" name="blogId">
               <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="authorId">
               <!--                TODO DAT STYLE-->
@@ -174,7 +174,7 @@ require "../components/header.php";
     let commentWrap = document.querySelector("div#containerCommentText-" + commentId);
 
     commentWrap.innerHTML = '' +
-        '<form action="<?php echo $GLOBALS['dir']?>/model/update.php" method="post"> ' +
+        '<form action="<?php echo $GLOBALS['dir']?>/controller/update_comment.php" method="post"> ' +
         '<input name="commentId" type="hidden" value="' + commentId + '">' +
         '<input name="blogId" type="hidden" value="' + blogId + '">' +
         '<input name="authorId" type="hidden" value="' + authorId + '">' +
@@ -189,7 +189,7 @@ require "../components/header.php";
       let commentWrap = document.querySelector("div#containerCommentText-" + commentId);
 
       commentWrap.innerHTML = '' +
-          '<form id=toSubmit action="<?php echo $GLOBALS['dir']?>/model/delete.php" method="post"> '
+          '<form id=toSubmit action="<?php echo $GLOBALS['dir']?>/controller/delete_comment.php" method="post"> '
           +
           '<input name="commentId" type="hidden" value="' + commentId + '">' +
           '<input name="blogId" type="hidden" value="' + blogId + '">' +
@@ -204,7 +204,7 @@ require "../components/header.php";
   function deleteBlog(blogId) {
     $.ajax({
       type: "POST",
-      url: "<?php echo $GLOBALS['dir']; ?>/model/delete_blog.php",
+      url: "<?php echo $GLOBALS['dir']; ?>/controller/delete_blog.php",
       data: {blogId: blogId},
       success: function () {
         location.replace("<?php echo $GLOBALS['dir']; ?>/index.php");
@@ -216,13 +216,13 @@ require "../components/header.php";
     setInterval(function () {
       $.ajax({
         type: "GET",
-        url: "<?php echo $GLOBALS['dir']; ?>/model/load_comments.php",
+        url: "<?php echo $GLOBALS['dir']; ?>/controller/load_comments.php",
         data: {blogId: <?php echo $blogId; ?>},
         success: function (response) {
           document.getElementById("comments-wrap-wrapper").innerHTML = response;
         }
       });
-    }, 5000);
+    }, 30000);
   });
 </script>
 </body>
