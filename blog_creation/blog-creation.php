@@ -63,7 +63,11 @@ require "../components/header.php";
   const editor = new FroalaEditor('#editor', {
     heightMin: 400,
     heightMax: 500,
-    width: '100%'
+    width: '100%',
+    imageAllowedTypes: [],
+    imageInsertButtons: [],
+    videoInsertButtons: [],
+    fileUpload: false
   });
 
   document.getElementById("submit-button").disabled = true;
