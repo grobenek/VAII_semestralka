@@ -214,7 +214,7 @@ body .blog-view-wrapper .blog-main-left .blog-view-main-text p {
   font-weight: 300;
   letter-spacing: 1px;
 }
-body .blog-view-wrapper .blog-main-left .blog-view-main-text p::first-letter {
+body .blog-view-wrapper .blog-main-left .blog-view-main-text p:nth-child(2)::first-letter {
   font-size: 3rem;
   float: left;
   padding-right: 10px;
@@ -548,6 +548,27 @@ input:hover {
 
 .fr-basic {
   border: 1px solid #7ae8e8;
+}
+
+form.form-blog-creation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+}
+form.form-blog-creation div.categories-dropdown {
+  width: 150px;
+}
+form.form-blog-creation div.categories-dropdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+form.form-blog-creation div.categories-dropdown div input {
+  width: 20px;
+  height: 20px;
 }
 
 .profile-wrapper {

@@ -7,8 +7,6 @@ $password = null;
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
-//    hash password
-//    $password = password_hash($password, PASSWORD_BCRYPT);
 }
 
 if (!empty($email) && !empty($password)) {

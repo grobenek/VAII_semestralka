@@ -15,7 +15,7 @@ if (isset($_POST['imageData']) && isset($_POST['fileName']) && isset($_POST['htm
 } else {
     http_response_code(404);
     include('../error_page/my_404.php');
-    die();
+    die("No data were POSTed when created blog");
 }
 
 $pictureId = Picture::createPicture($imageData, $fileName);
@@ -26,10 +26,15 @@ if ($pictureId) {
     $createdBlog = Blog::createBlog($userId, $pictureId, $title, $htmlContent, $timestamp);
 
     if ($createdBlog == true) {
-        echo "PODARILO SA";
+        header('Location:' . $GLOBALS['dir'] . '/index.php');
     } else {
-        var_dump($createdBlog);
+        http_response_code(404);
+        include('../error_page/my_404.php');
+        die("Error occured when creating blog!");
     }
 } else {
-    echo "PICTURE WAS NOT UPLOADED!";
+    http_response_code(404);
+    include('../error_page/my_404.php');
+    die("Error occured when creating blog!");
 }
+

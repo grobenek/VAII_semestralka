@@ -11,17 +11,8 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['login']
     $password = $_POST['password'];
     $login = $_POST['login'];
     $aboutUser = $_POST['aboutUser'];
-//    hash password
-    $password = password_hash($password, PASSWORD_BCRYPT);
 
-//    var_dump($email);
-//    echo("\n");
-//    var_dump($password);
-//    echo("\n");
-//    var_dump($login);
-//    echo("\n");
-//    var_dump($aboutUser);
-//    echo("\n");
+    $password = password_hash($password, PASSWORD_BCRYPT);
 }
 
 if (!empty($email) && !empty($password) && !empty($login) && !empty($aboutUser)) {

@@ -81,19 +81,21 @@ require "../components/header.php";
       </p>
     </div>
     <div class="comments-wrap">
-        <?php
-        if (isset($_COOKIE['user'])) { ?>
-          <form action="<?php echo $GLOBALS['dir'] ?>/model/create.php" method="post">
-            <input type="hidden" value="<?php echo $blog->getBlogId() ?>" name="blogId">
-            <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="authorId">
-            <!--                TODO DAT STYLE-->
-            <textarea name="text" required maxlength="65535" style="resize: none"
-                      placeholder="Start writing your comment..."></textarea>
-            <button type="submit">Post</button>
-          </form>
-            <?php
-        }
-        ?>
+      <div>
+          <?php
+          if (isset($_COOKIE['user'])) { ?>
+            <form action="<?php echo $GLOBALS['dir'] ?>/model/create.php" method="post">
+              <input type="hidden" value="<?php echo $blog->getBlogId() ?>" name="blogId">
+              <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="authorId">
+              <!--                TODO DAT STYLE-->
+              <textarea name="text" required maxlength="65535" style="resize: none"
+                        placeholder="Start writing your comment..."></textarea>
+              <button type="submit">Post</button>
+            </form>
+              <?php
+          }
+          ?>
+      </div>
         <?php
 
         foreach ($comments as $comment) {
@@ -210,6 +212,19 @@ require "../components/header.php";
       }
     });
   }
+
+  $(document).ready(function () {
+    setInterval(function () {
+      $.ajax({
+        type: "GET",
+        url: "../model/load_comments.php",
+        data: {blogId: <?php echo $blogId; ?>},
+        success: function (response) {
+          document.getElementById("comments-wrap").html(response);
+        }
+      });
+    }, 5000);
+  });
 </script>
 </body>
 </html>

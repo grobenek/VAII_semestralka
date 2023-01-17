@@ -18,7 +18,7 @@
           <?php if (isset($_COOKIE['userAdmin'])) {
               if ($_COOKIE['userAdmin']) {
                   ?>
-                <li>
+                <li onclick="location.href='<?php echo $GLOBALS['dir']?>/admin/manage-users.php'">
                   <a href="<?php echo $GLOBALS['dir']?>/admin/manage-users.php">Manage users</a>
                 </li>
               <?php }

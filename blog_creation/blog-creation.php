@@ -2,9 +2,11 @@
 
 use Model\Blog;
 use Model\Picture;
+use Model\Category;
 
 require_once('../model/Blog.php');
 require_once('../model/Picture.php');
+require_once('../model/Category.php');
 
 if (isset($_COOKIE['user'])) {
     $userId = $_COOKIE['user'];
@@ -13,6 +15,8 @@ if (isset($_COOKIE['user'])) {
     include('../error_page/my_404.php');
     die();
 }
+
+$categories = Category::getAllCategoryNames();
 
 require "../components/head.php";
 require "../components/header.php";
@@ -27,22 +31,29 @@ require "../components/header.php";
   <div id="editor"></div>
 </div>
 
-<form id="submit-form" method="POST" action="<?php echo $GLOBALS['dir'] ?>/model/create_blog.php">
-  <label for="title">Title:</label>
-  <input type="text" id="title" name="title" required>
-  <label for="categories">Categories:</label>
-  <input type="text" id="categories" name="categories" required>
-  <label for="image">Image:</label>
-  <input type="file" id="image" name="image">
+<form class="form-blog-creation" id="submit-form" method="POST" action="<?php echo $GLOBALS['dir'] ?>/model/create_blog.php">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+  </div>
+  <div class="categories-dropdown">
+    <div>
+<!--      TODO NAME CATEGORIE DAT AKO JEJ NAZOV-->
+      <?php foreach ($categories as $category) { ?>
+        <input type="checkbox" id="<?php echo $category->getCategoryName() ?>" name="<?php echo $category->getCategoryName() ?>">
+        <label for="<?php echo $category->getCategoryName() ?>"><?php echo $category->getCategoryName() ?></label>
+      <?php } ?>
+    </div>
+  </div>
+  <div>
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image">
+  </div>
   <textarea id="imageData" name="imageData" style="display: none;"></textarea>
   <textarea id="fileName" name="fileName" style="display: none;"></textarea>
   <textarea id="html-content" name="html-content" style="display:none;"></textarea>
   <button type="submit" id="submit-button">Submit</button>
 </form>
-
-</body>
-</html>
-
 
 <script>
   // Get the Froala editor instance
@@ -51,6 +62,8 @@ require "../components/header.php";
     heightMax: 500,
     width: '100%'
   });
+
+  document.getElementById("submit-button").disabled = true;
 
   document.getElementById('image').addEventListener("change", function () {
     let fileInput = document.getElementById('image');
@@ -75,6 +88,7 @@ require "../components/header.php";
 
           let imageData = document.getElementById('imageData');
           imageData.value = decodedString;
+          document.getElementById("submit-button").disabled = false;
         } else {
           alert("There was an error reading the image. Please try again.");
         }
@@ -106,5 +120,8 @@ require "../components/header.php";
     }
   });
 </script>
+
+</body>
+</html>
 
 

@@ -62,7 +62,7 @@ body {
           letter-spacing: 1px;
         }
 
-        p::first-letter {
+        p:nth-child(2)::first-letter { // wysiwyg editor pridava prve p stale, preto davam nth-child(2)
           font-size: 3rem;
           float: left;
           padding-right: 10px;

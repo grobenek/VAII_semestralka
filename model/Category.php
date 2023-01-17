@@ -67,6 +67,42 @@ class Category
         $this->blogId = $blogId;
     }
 
+    static function getAllCategoryNames(): array
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/categoryName',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        $decodedCategories = json_decode($response, true);
+
+        if ($decodedCategories == null) {
+            return [];
+        }
+
+        $categoriesToReturn = [];
+
+        foreach ($decodedCategories as $category) {
+            $categoryToAdd = new Category();
+            $categoryToAdd->setAtributes($category['categoryNameId'], $category['name'], null);
+            $categoriesToReturn[] = $categoryToAdd;
+        }
+
+        return $categoriesToReturn;
+    }
+
     static function getCategoriesByBlogId($blogId)
     {
         $curl = curl_init();
