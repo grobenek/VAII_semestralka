@@ -5,20 +5,53 @@ div.profiles-wrapper {
   align-items: flex-start;
   justify-content: flex-start;
   row-gap: 15px;
+  width: 100%;
 
   div.profile-view-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
     column-gap: 20px;
+    width: 100%;
+
+    div.profile-view-left {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      column-gap: 20px;
+    }
 
     div:nth-child(2) {
       display: flex;
       flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
+      justify-content: space-evenly;
+      align-items: center;
       column-gap: 20px;
+
+      button:nth-child(1) {
+        padding: 5px;
+        background-color: orangered;
+        color: white;
+        border: none;
+
+        &:hover {
+          background-color: #ff875b;
+        }
+      }
+
+      button:nth-child(2) {
+        padding: 5px;
+        background-color: #76F5AD;
+        color: black;
+        border: none;
+
+        &:hover {
+          background-color: #a8f8cc;
+        }
+      }
     }
   }
 }

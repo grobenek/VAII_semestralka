@@ -98,6 +98,8 @@
     flex-wrap: wrap;
     align-content: center;
     max-width: 70%;
+    width: 100%;
+    min-width: 200px;
     height: fit-content;
     margin: 10px;
     border-radius: 15px;
@@ -111,6 +113,6 @@
   }
 
   .blog-main-text {
-    font-size: 1.29rem;
+    font-size: 1.15rem;
   }
 }

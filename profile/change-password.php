@@ -13,7 +13,6 @@ if (isset($_COOKIE['user'])) {
 $user = User::getUserById($userId);
 
 require "../components/head.php";
-require "../components/header.php";
 ?>
 <form action="../controller/change-password-send.php" method="post" class="login-wrapper">
   <div class="input-wrapper">

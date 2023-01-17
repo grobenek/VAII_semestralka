@@ -24,7 +24,7 @@ require "../components/header.php";
         }
         ?>
       <div class="profile-view-wrapper">
-        <div>
+        <div class="profile-view-left">
           <span><?php echo $user->getLogin(); ?></span>
           <span><?php echo $user->getEmail(); ?></span>
         </div>
