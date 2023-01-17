@@ -56,3 +56,20 @@ div.profiles-wrapper {
   }
 }
 
+@media (max-width: 830px) {
+  div.profiles-wrapper div.profile-view-wrapper {
+    flex-direction: column;
+
+    div.profile-view-left {
+      flex: 0;
+      flex-direction: column;
+      width: 100%;
+      span {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
