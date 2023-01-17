@@ -699,6 +699,21 @@ div.profiles-wrapper div.profile-view-wrapper div:nth-child(2) button:nth-child(
   background-color: #a8f8cc;
 }
 
+@media (max-width: 830px) {
+  div.profiles-wrapper div.profile-view-wrapper {
+    flex-direction: column;
+  }
+  div.profiles-wrapper div.profile-view-wrapper div.profile-view-left {
+    flex: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+  div.profiles-wrapper div.profile-view-wrapper div.profile-view-left span {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 div.manage-categories-wrapper {
   padding: 15px;
   display: flex;
