@@ -31,8 +31,6 @@ $picture = Picture::getPictureById($blog->getPictureId());
 $comments = Comment::getAllCommentsOfBlogById($blog->getBlogId());
 $categories = Category::getCategoriesByBlogId($blog->getBlogId());
 
-//TODO SPRAVIT WYSIWYG EDITOR PRI VYTVARANI BLOGU
-
 require "../components/head.php";
 require "../components/header.php";
 ?>
@@ -42,7 +40,7 @@ require "../components/header.php";
     <div class="blog-header">
       <div class="blog-main-image">
           <?php
-          echo '<img src="data:image/jpg;base64,' . $picture->getData() . '" />';
+          echo '<img alt="Blog-image" src="data:image/jpg;base64,' . $picture->getData() . '" />';
           ?>
       </div>
 

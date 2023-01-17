@@ -7,10 +7,7 @@
     <nav class="main-navigation">
       <ul>
         <li>
-          <a href="">Home</a>
-        </li>
-        <li>
-          <a href="<?php echo $GLOBALS['dir'] ?>/profile/profile.php">My profile</a>
+          <a href="<?php echo $GLOBALS['dir']; ?>/index.php">Home</a>
         </li>
           <?php if (isset($_COOKIE['userAdmin'])) {
               if ($_COOKIE['userAdmin']) {
@@ -50,6 +47,7 @@
             onclick='window.location.href="<?php echo $GLOBALS['dir'] ?>/my_blogs/my-blogs.php?<?php echo $query; ?>"'>
           My blogs
         </button>
+        <button onclick="window.location.href= '<?php echo $GLOBALS['dir'] ?>/profile/profile.php'">My profile</button>
         <button onclick="window.location.href= '<?php echo $GLOBALS['dir'] ?>/controller/sign_out.php';">
           Sign out
         </button>

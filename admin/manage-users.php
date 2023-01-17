@@ -38,9 +38,6 @@ require "../components/header.php";
 </div>
 </div>
 
-</body>
-</html>
-
 <script>
   function removeUser(userId) {
     $.ajax({
@@ -104,4 +101,7 @@ require "../components/header.php";
     })
   }
 </script>
+
+</body>
+</html>
 

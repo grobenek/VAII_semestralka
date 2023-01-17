@@ -43,12 +43,7 @@ $blogs = Blog::getBlogsByUserId($userId);
           </a>
         </div>
         <div class="blog-main-h2">
-          <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A est expedita facere hic
-            inventore ipsum
-            laborum laudantium maiores maxime, nobis numquam pariatur quod quos repellat sunt,
-            tempora tenetur
-            totam
-            vitae?</h2>
+          <h2><?php echo $blog->getTitle(); ?></h2>
         </div>
         <div class="blog-main-text">
           <p><span><?php $text = $blog->getText();

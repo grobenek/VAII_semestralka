@@ -36,8 +36,8 @@ require "../components/header.php";
   <div class="categories-dropdown">
     <div>
         <?php foreach ($categories as $category) { ?>
-          <input type="checkbox" id="<?php echo $category->getCategoryName() ?>" name="<?php echo $category->getCategoryName() ?>">
-          <label for="<?php echo $category->getCategoryName() ?>"><?php echo $category->getCategoryName() ?></label>
+          <input type="checkbox" name="<?php echo $category->getCategoryName() ?>">
+          <span><?php echo $category->getCategoryName() ?></span>
         <?php } ?>
     </div>
   </div>
@@ -49,7 +49,7 @@ require "../components/header.php";
   </div>
   <div>
     <label for="image">Image:</label>
-    <input type="file" id="image" name="image">
+    <input type="file" id="image" accept="image/png, image/gif, image/jpeg" name="image">
   </div>
   </div>
   <textarea id="imageData" name="imageData" style="display: none;"></textarea>
