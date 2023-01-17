@@ -1,0 +1,45 @@
+.editor-wrapper {
+  width: 80%;
+}
+
+.fr-basic {
+  border: 1px solid $primary-color;
+}
+
+form.form-blog-creation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  div.categories-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    div.categories-dropdown {
+      width: 150px;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        input {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  div.form-inputs-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}

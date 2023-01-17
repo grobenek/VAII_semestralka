@@ -62,7 +62,7 @@ body {
           letter-spacing: 1px;
         }
 
-        p::first-letter {
+        p:nth-child(2)::first-letter { // wysiwyg editor pridava prve p stale, preto davam nth-child(2)
           font-size: 3rem;
           float: left;
           padding-right: 10px;
@@ -152,6 +152,31 @@ body {
       position: relative;
       padding: 20px;
       flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      .categories {
+        position: absolute;
+        bottom: 0;
+        border-top: $primary-color solid;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .category {
+          margin: 1px;
+        }
+
+        .categories-title {
+          font-weight: bolder;
+          margin-bottom: 15px;
+        }
+      }
 
       .sidebar-autor-section {
         margin-left: 20px;
@@ -161,18 +186,6 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        .blogs-from-author {
-          position: absolute;
-          bottom: 0;
-          border-top: $primary-color solid;
-          height: fit-content;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 20px;
-        }
 
         .about-author-container {
           border-bottom: $primary-color solid;

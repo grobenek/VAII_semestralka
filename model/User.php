@@ -5,19 +5,114 @@ class User
     private $userId;
     private $login;
     private $isAdmin;
+    private $aboutUser;
+    private $email;
 
 
     public function __construct()
     {
     }
 
-    public function setAttributes($userId, $login, $isAdmin)
+    public function setAttributes($userId, $login, $isAdmin, $aboutUser, $email)
     {
         $this->userId = $userId;
         $this->login = $login;
         $this->isAdmin = $isAdmin;
+        $this->aboutUser = $aboutUser;
+        $this->email = $email;
     }
 
+    public static function getAllUsers(): User|array
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/user',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        $users = json_decode($response, true);
+
+        $usersToReturn = [];
+
+        foreach ($users as $user) {
+            $userToReturn = new User();
+            $userToReturn->setAttributes($user['userId'], $user['login'], $user['isAdmin'],  $user['aboutUser'], $user['email']);
+            $usersToReturn[] = $userToReturn;
+        }
+
+        return $usersToReturn;
+    }
+
+    public static function removeUserById(mixed $userId)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/user/'.$userId,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'DELETE',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
+    {
+        $this->email = $email;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getAboutUser()
+    {
+        return $this->aboutUser;
+    }
+
+    /**
+     * @param mixed $aboutUser
+     */
+    public function setAboutUser($aboutUser): void
+    {
+        $this->aboutUser = $aboutUser;
+    }
 
     /**
      * @return mixed
@@ -121,7 +216,62 @@ class User
         $decodedUsers = json_decode($response, true);
 
         $userToReturn = new User();
-        $userToReturn->setAttributes($decodedUsers["userId"], $decodedUsers["login"], $decodedUsers["isAdmin"]);
+        $userToReturn->setAttributes($decodedUsers["userId"], $decodedUsers["login"], $decodedUsers["isAdmin"], $decodedUsers["aboutUser"], $decodedUsers["email"]);
         return $userToReturn;
+    }
+
+    static function makeUserAdmin($userId, $login, $email, $aboutUser) {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/user/'.$userId,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_POSTFIELDS =>'{
+    "userId": '. $userId .',
+    "login": "'.$login.'",
+    "isAdmin": true,
+    "email": "'.$email.'",
+    "aboutUser": "'.$aboutUser.'"
+}',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+    }
+
+    static function changeUserPassword($userId, $password)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://localhost:8080/api/user/change/password/'.$userId,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS =>'{
+    "password": "'.$password.'"
+}',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
     }
 }

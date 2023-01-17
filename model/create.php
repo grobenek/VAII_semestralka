@@ -17,4 +17,5 @@ if (isset($_POST['authorId']) && isset($_POST['blogId']) && isset($_POST['text']
 
     Comment::createComment($authorId, $blogId, $text);
 }
-header('Location:'.$GLOBALS['dir'].'/blog/blog-view.php');
+$query = http_build_query(array('blogId' => $blogId));
+header('Location:'.$GLOBALS['dir'].'/blog/blog-view.php?'.$query);

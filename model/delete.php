@@ -2,9 +2,15 @@
 include_once $_SERVER["DOCUMENT_ROOT"] . "/semestralka/config/dir_global.php";
 
 $commentId = null;
+$blogId = null;
 
-if (isset($_POST['commentId'])) {
+if (isset($_POST['commentId']) && isset($_POST['blogId'])) {
     $commentId = $_POST['commentId'];
+    $blogId = $_POST['blogId'];
+} else {
+    http_response_code(404);
+    include('../error_page/my_404.php');
+    die();
 }
 
 if (!empty($commentId)) {
@@ -28,4 +34,5 @@ if (!empty($commentId)) {
 
     curl_close($curl);
 }
-header('Location:' . $GLOBALS['dir'] . '/blog/blog-view.php');
+$query = http_build_query(array('blogId' => $blogId));
+header('Location:' . $GLOBALS['dir'] . '/blog/blog-view.php?'.$query);

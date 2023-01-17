@@ -2,6 +2,9 @@
 @import "css/header";
 @import "blog/blog-view";
 @import "login/login";
+@import "my_blogs/my-blogs";
+@import "blog_creation/blog-creation";
+@import "profile/profile";
 
 * {
   margin: 0;
@@ -49,16 +52,11 @@
 
 .blog-main-picture a {
   width: 100%;
-  height: 100%;
-}
-
-div.img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
   height: 200px;
-  width: 100%;
 }
 
 .blog-main-text {

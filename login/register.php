@@ -18,6 +18,7 @@ require "../components/head.php";
 
         <div class="password-wrapper">
             <input required type="password" name="password" placeholder="Password">
+          <input required type="text" name="aboutUser" style="margin-top: 5px" placeholder="About you">
         </div>
     </div>
 
