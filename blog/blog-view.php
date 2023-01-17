@@ -82,7 +82,7 @@ require "../components/header.php";
       <div>
           <?php
           if (isset($_COOKIE['user'])) { ?>
-            <form action="<?php echo $GLOBALS['dir'] ?>/model/create.php" method="post">
+            <form action="<?php echo $GLOBALS['dir'] ?>/model/create_comment.php" method="post">
               <input type="hidden" value="<?php echo $blog->getBlogId() ?>" name="blogId">
               <input type="hidden" value="<?php echo $_COOKIE['user'] ?>" name="authorId">
               <!--                TODO DAT STYLE-->
@@ -189,7 +189,7 @@ require "../components/header.php";
       let commentWrap = document.querySelector("div#containerCommentText-" + commentId);
 
       commentWrap.innerHTML = '' +
-          '<form id=toSubmit action="<?php echo $GLOBALS['dir']?>/model/delete.php" method="post"> '
+          '<form id=toSubmit action="<?php echo $GLOBALS['dir']?>/model/delete_comment.php" method="post"> '
           +
           '<input name="commentId" type="hidden" value="' + commentId + '">' +
           '<input name="blogId" type="hidden" value="' + blogId + '">' +
